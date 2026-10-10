@@ -24,6 +24,13 @@ npm run build    # outputs to dist/
 | Database schema | `supabase/migrations/` |
 | Original brand media | `brand/` |
 
+## Starfield background
+
+The gold starfield is an adaptation of the React Bits [Galaxy](https://www.reactbits.dev/backgrounds/galaxy) background
+(MIT + Commons Clause, notice kept in `src/scripts/galaxy.ts`), rendered with [ogl](https://github.com/oframe/ogl).
+Use `<Galaxy />` inside a dark `.on-night` section; `Base.astro` adds a faint `variant="paper"` layer in the side
+margins of every page. It pauses off-screen and in background tabs, and stays still for reduced-motion visitors.
+
 ## Media
 
 All images and animations are served from Cloudinary (`dkndq6lyz`, folder `dimapub`). The large source GIFs are

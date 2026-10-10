@@ -276,6 +276,16 @@ em.gold,
     linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%);
   color: var(--night-text);
 }
+.on-night {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+/* Keep content above the starfield layer. */
+.on-night > :not(.galaxy) {
+  position: relative;
+  z-index: 1;
+}
 .on-night .eyebrow {
   color: var(--gold-bright);
 }

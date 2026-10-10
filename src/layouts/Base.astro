@@ -1,4 +1,5 @@
 ---
+import Galaxy from '../components/Galaxy.astro';
 import '@fontsource-variable/fraunces/full.css';
 import '@fontsource-variable/fraunces/full-italic.css';
 import '@fontsource-variable/inter';
@@ -70,6 +71,7 @@ const orgLd = {
     </script>
   </head>
   <body>
+    <Galaxy variant="paper" />
     <a class="skip-link" href="#main">Skip to content</a>
     <Header tone={headerTone} />
     <main id="main">

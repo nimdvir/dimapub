@@ -1,4 +1,5 @@
 ---
+import Galaxy from '../components/Galaxy.astro';
 import Base from '../layouts/Base.astro';
 import LoopMedia from '../components/LoopMedia.astro';
 import BookCover from '../components/BookCover.astro';
@@ -114,6 +115,7 @@ const doors = [
 
   <!-- ============ FEATURED BOOK ============ -->
   <section class="section on-night featured" id="book">
+    <Galaxy />
     <div class="container split">
       <div class="cover-col reveal">
         <div class="glow" aria-hidden="true"></div>
@@ -267,6 +269,7 @@ const doors = [
   <section class="section tight">
     <div class="container">
       <div class="cta-band on-night reveal">
+        <Galaxy center={0.35} />
         <div>
           <p class="eyebrow">For instructors &amp; programs</p>
           <h2>Teaching this course next term?</h2>

@@ -1,4 +1,5 @@
 ---
+import Galaxy from '../../components/Galaxy.astro';
 import Base from '../../layouts/Base.astro';
 import BookCover from '../../components/BookCover.astro';
 import Icon from '../../components/Icon.astro';
@@ -32,6 +33,7 @@ const bookLd = {
 
   <!-- ============ HERO ============ -->
   <section class="book-hero on-night">
+    <Galaxy />
     <div class="container split">
       <div>
         <p class="eyebrow reveal">Interactive textbook · {book.chapters} chapters</p>
@@ -147,6 +149,7 @@ const bookLd = {
 
   <!-- ============ R.E.A.D. ============ -->
   <section class="section on-night">
+    <Galaxy />
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">A habit, not a formula</p>
@@ -330,6 +333,7 @@ const bookLd = {
   <section class="section tight">
     <div class="container">
       <div class="end-cta on-night reveal">
+        <Galaxy center={0.35} />
         <h2>Open it. Run a query. See for yourself.</h2>
         <div class="cta-row">
           <a class="btn gold" href={book.readerUrl} target="_blank" rel="noopener">Start reading <Icon name="external" size={16} /></a>
