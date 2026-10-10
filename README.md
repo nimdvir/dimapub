@@ -42,10 +42,10 @@ delivered as short MP4/WebM loops (about 150–300 KB instead of 4 MB) using on-
 - **Contact form & updates list** → `contact` edge function → `contact_messages` / `subscribers` tables, plus an
   email notification to dimapublishingllc@gmail.com through Resend. The function needs a `RESEND_API_KEY` secret
   (Supabase dashboard → Edge Functions → Secrets). Without it, messages are still saved; only the email is skipped.
-- **Partner portal** (`/portal/`) → Supabase Auth (email + password). Only emails listed in `portal_members` can see
+- **Login / research reports** (`/login/`) → Supabase Auth (email + password). Only emails listed in `portal_members` can see
   rows in `research_reports` and files in the private `research` storage bucket.
 
-### Add someone to the portal
+### Give someone a login
 
 1. Supabase → Authentication → Users → **Add user** (email + password).
 2. Table editor → `portal_members` → insert their email.

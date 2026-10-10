@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /login/
 Disallow: /portal/
 
 Sitemap: https://dimapub.com/sitemap-index.xml

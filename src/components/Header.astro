@@ -1,7 +1,7 @@
 ---
 import Wordmark from './Wordmark.astro';
 import Icon from './Icon.astro';
-import { nav, site } from '../data/site';
+import { nav } from '../data/site';
 
 interface Props {
   tone?: 'paper' | 'night';
@@ -32,12 +32,9 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
     </nav>
 
     <div class="actions">
-      <a href="/portal/" class="portal-link" title="Partner portal">
+      <a href="/login/" class="login-link">
         <Icon name="lock" size={17} />
-        <span>Portal</span>
-      </a>
-      <a href={site.readerUrl} class="btn gold small" target="_blank" rel="noopener">
-        Read the book
+        <span>Login</span>
       </a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
         <span class="sr-only">Open menu</span>
@@ -58,12 +55,9 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
           ))
         }
         <li style={`--i:${nav.length}`}>
-          <a href="/portal/">Partner portal</a>
+          <a href="/login/">Login</a>
         </li>
       </ul>
-      <a href={site.readerUrl} class="btn gold" target="_blank" rel="noopener">
-        Open the interactive reader <Icon name="external" size={18} />
-      </a>
     </nav>
   </div>
 </header>
@@ -155,7 +149,7 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
     align-items: center;
     gap: 10px;
   }
-  .portal-link {
+  .login-link {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -167,7 +161,7 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
     border-radius: 999px;
     transition: opacity 0.2s;
   }
-  .portal-link:hover {
+  .login-link:hover {
     opacity: 1;
   }
   .menu-btn {
@@ -227,16 +221,11 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
 
   @media (max-width: 960px) {
     .primary,
-    .portal-link {
+    .login-link {
       display: none;
     }
     .menu-btn {
       display: inline-flex;
-    }
-  }
-  @media (max-width: 420px) {
-    .actions .btn {
-      display: none;
     }
   }
 </style>
