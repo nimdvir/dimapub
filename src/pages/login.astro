@@ -5,7 +5,7 @@ import Icon from '../components/Icon.astro';
 import Diamond from '../components/Diamond.astro';
 ---
 
-<Base title="Partner portal" description="Private research and briefing materials for approved Dima Publishing partners." headerTone="night" noindex>
+<Base title="Login" description="Private research and briefing materials for approved Dima Publishing partners." headerTone="night" noindex>
   <section class="portal on-night">
     <Galaxy />
     <div class="container">
@@ -19,7 +19,7 @@ import Diamond from '../components/Diamond.astro';
       <div class="state auth" data-state="signed-out" hidden>
         <div class="auth-intro">
           <Diamond size={46} />
-          <p class="eyebrow">Partner portal</p>
+          <p class="eyebrow">Login</p>
           <h1>Research &amp; briefings</h1>
           <p class="lede">
             Market research, positioning and partner materials for approved collaborators. Sign in with the account we
@@ -66,7 +66,7 @@ import Diamond from '../components/Diamond.astro';
       <div class="state center" data-state="no-access" hidden>
         <Diamond size={46} />
         <h1>You’re signed in, but not on the list yet.</h1>
-        <p class="lede">This account doesn’t have portal access. If you think it should, let us know and we’ll sort it out.</p>
+        <p class="lede">This account doesn’t have access to the reports yet. If you think it should, let us know and we’ll sort it out.</p>
         <div class="row">
           <a class="btn gold" href="/contact/?topic=portal">Request access</a>
           <button class="btn ghost" type="button" data-signout>Sign out</button>
@@ -77,7 +77,7 @@ import Diamond from '../components/Diamond.astro';
       <div class="state" data-state="member" hidden>
         <div class="member-head">
           <div>
-            <p class="eyebrow">Partner portal</p>
+            <p class="eyebrow">Members</p>
             <h1>Research &amp; briefings</h1>
             <p class="who">Signed in as <strong data-email></strong></p>
           </div>
@@ -427,7 +427,7 @@ import Diamond from '../components/Diamond.astro';
     const form = document.querySelector<HTMLFormElement>('[data-login]')!;
     const email = (form.querySelector('#p-email') as HTMLInputElement).value.trim();
     if (!email) return status(form, 'Enter your email above first, then tap “Forgot your password?”.', 'err');
-    await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}/portal/` });
+    await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}/login/` });
     status(form, 'If that address has an account, a reset link is on its way.', 'ok');
   });
 
