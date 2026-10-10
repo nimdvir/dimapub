@@ -1,0 +1,159 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import { site, book } from '../data/site';
+
+const groups = [
+  {
+    who: 'Instructors',
+    icon: 'users',
+    items: [
+      { title: 'Review copy', body: 'Full access to the reader for evaluation.', href: '/contact/?topic=instructor', cta: 'Request' },
+      { title: 'Chapter map & syllabus guide', body: 'How the 16 chapters fit a 15-week semester, plus shorter paths.', href: '/contact/?topic=instructor', cta: 'Request' },
+      { title: 'Labs & reading checks', body: 'Transfer labs, Reading Assessment Tests and grading guidance.', href: '/contact/?topic=instructor', cta: 'Request' },
+    ],
+  },
+  {
+    who: 'Students',
+    icon: 'graduation',
+    items: [
+      { title: 'Open the reader', body: 'Read, run SQL and pick up where you left off.', href: site.readerUrl, cta: 'Open', external: true },
+      { title: 'Reader help', body: 'Trouble signing in or a chapter not loading? We will sort it out.', href: '/contact/?topic=support', cta: 'Get help' },
+      { title: 'Table of contents', body: 'See what is coming and where you are.', href: `/books/${book.slug}/#contents`, cta: 'View' },
+    ],
+  },
+  {
+    who: 'Programs & partners',
+    icon: 'building',
+    items: [
+      { title: 'Course & campus access', body: 'Section, department and institutional licensing.', href: '/contact/?topic=bulk', cta: 'Ask' },
+      { title: 'Publish with us', body: 'Have a course that deserves a better book? Let’s talk.', href: '/contact/?topic=authors', cta: 'Pitch' },
+      { title: 'Partner portal', body: 'Private research and briefing materials for approved partners.', href: '/portal/', cta: 'Sign in' },
+    ],
+  },
+];
+---
+
+<Base title="Resources" description="Resources for instructors, students and programs using Dima Publishing books.">
+  <PageHero
+    eyebrow="Resources"
+    title="Everything you need to <em class='gold'>teach</em> and <em class='gold'>learn</em> with us."
+    lede="Pick your seat in the room. If you don’t see what you need, ask — a person reads every message."
+  />
+
+  <section class="section">
+    <div class="container groups">
+      {
+        groups.map((g, gi) => (
+          <div class="group reveal" style={`--d:${gi * 0.06}s`}>
+            <div class="group-head">
+              <span class="ico"><Icon name={g.icon} size={24} /></span>
+              <h2>{g.who}</h2>
+            </div>
+            <div class="items">
+              {g.items.map((it) => (
+                <a
+                  class="item"
+                  href={it.href}
+                  target={it.external ? '_blank' : undefined}
+                  rel={it.external ? 'noopener' : undefined}
+                >
+                  <span>
+                    <strong>{it.title}</strong>
+                    <em>{it.body}</em>
+                  </span>
+                  <span class="go">
+                    {it.cta} <Icon name={it.external ? 'external' : 'arrow'} size={15} />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .groups {
+    display: grid;
+    gap: clamp(40px, 6vw, 72px);
+  }
+  .group {
+    display: grid;
+    grid-template-columns: 0.6fr 1.4fr;
+    gap: 32px;
+    align-items: start;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .group-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .group-head h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin: 0;
+  }
+  .ico {
+    display: inline-grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: var(--gold-wash);
+    color: var(--gold-deep);
+  }
+  .items {
+    display: grid;
+    gap: 10px;
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition:
+      transform 0.4s var(--ease),
+      border-color 0.3s,
+      box-shadow 0.4s var(--ease);
+  }
+  .item:hover {
+    transform: translateX(4px);
+    border-color: var(--gold);
+    box-shadow: var(--shadow-s);
+  }
+  .item strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .item em {
+    font-style: normal;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  .go {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold-deep);
+  }
+  @media (max-width: 820px) {
+    .group {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,269 @@
+---
+import Wordmark from './Wordmark.astro';
+import Icon from './Icon.astro';
+import { nav, site } from '../data/site';
+
+interface Props {
+  tone?: 'paper' | 'night';
+}
+const { tone = 'paper' } = Astro.props;
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+---
+
+<header class:list={['site-header', tone]} data-header data-tone={tone}>
+  <div class="bar container">
+    <a href="/" class="brand" aria-label="Dima Publishing home">
+      <Wordmark tone="inherit" />
+    </a>
+
+    <nav class="primary" aria-label="Main">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} class:list={{ active: isActive(item.href) }} aria-current={isActive(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <a href="/portal/" class="portal-link" title="Partner portal">
+        <Icon name="lock" size={17} />
+        <span>Portal</span>
+      </a>
+      <a href={site.readerUrl} class="btn gold small" target="_blank" rel="noopener">
+        Read the book
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span class="sr-only">Open menu</span>
+        <Icon name="menu" size={24} class="i-open" />
+        <Icon name="close" size={24} class="i-close" />
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile" id="mobile-menu" hidden data-menu>
+    <nav aria-label="Mobile">
+      <ul>
+        {
+          nav.map((item, i) => (
+            <li style={`--i:${i}`}>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+        <li style={`--i:${nav.length}`}>
+          <a href="/portal/">Partner portal</a>
+        </li>
+      </ul>
+      <a href={site.readerUrl} class="btn gold" target="_blank" rel="noopener">
+        Open the interactive reader <Icon name="external" size={18} />
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition:
+      background 0.35s,
+      box-shadow 0.35s,
+      border-color 0.35s;
+    border-bottom: 1px solid transparent;
+  }
+  .site-header.paper {
+    background: rgba(251, 249, 244, 0.72);
+    color: var(--ink);
+  }
+  .site-header.night {
+    background: rgba(14, 20, 36, 0.55);
+    color: var(--night-text);
+  }
+  .site-header {
+    backdrop-filter: saturate(1.4) blur(14px);
+    -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  }
+  .site-header.scrolled.paper {
+    background: rgba(251, 249, 244, 0.92);
+    border-bottom-color: var(--line);
+  }
+  .site-header.scrolled.night {
+    background: rgba(14, 20, 36, 0.9);
+    border-bottom-color: rgba(233, 228, 216, 0.08);
+  }
+  .bar {
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .primary ul {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .primary a {
+    position: relative;
+    display: block;
+    padding: 8px 14px;
+    font-size: 0.93rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 999px;
+    opacity: 0.82;
+    transition:
+      opacity 0.2s,
+      background 0.2s;
+  }
+  .primary a:hover {
+    opacity: 1;
+    background: rgba(20, 18, 15, 0.05);
+  }
+  .night .primary a:hover {
+    background: rgba(255, 255, 255, 0.07);
+  }
+  .primary a.active {
+    opacity: 1;
+  }
+  .primary a.active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 1px;
+    width: 5px;
+    height: 5px;
+    transform: translateX(-50%) rotate(45deg);
+    background: var(--gold);
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .portal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 500;
+    text-decoration: none;
+    opacity: 0.7;
+    padding: 8px 10px;
+    border-radius: 999px;
+    transition: opacity 0.2s;
+  }
+  .portal-link:hover {
+    opacity: 1;
+  }
+  .menu-btn {
+    display: none;
+    background: none;
+    border: 0;
+    color: inherit;
+    padding: 8px;
+    margin-right: -8px;
+    cursor: pointer;
+  }
+  .menu-btn :global(.i-close) {
+    display: none;
+  }
+  .menu-btn[aria-expanded='true'] :global(.i-open) {
+    display: none;
+  }
+  .menu-btn[aria-expanded='true'] :global(.i-close) {
+    display: block;
+  }
+
+  .mobile {
+    border-top: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    height: calc(100dvh - var(--header-h));
+    overflow-y: auto;
+  }
+  .mobile nav {
+    padding: 28px var(--gutter) 40px;
+    display: grid;
+    gap: 28px;
+  }
+  .mobile ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mobile li {
+    border-bottom: 1px solid var(--line);
+    animation: slideIn 0.5s var(--ease) both;
+    animation-delay: calc(var(--i) * 45ms);
+  }
+  .mobile li a {
+    display: block;
+    padding: 16px 0;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    text-decoration: none;
+  }
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+
+  @media (max-width: 960px) {
+    .primary,
+    .portal-link {
+      display: none;
+    }
+    .menu-btn {
+      display: inline-flex;
+    }
+  }
+  @media (max-width: 420px) {
+    .actions .btn {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+
+  // Pages with a dark hero start with a night header, then switch to paper once the hero scrolls away.
+  const hero = header?.dataset.tone === 'night' ? document.querySelector<HTMLElement>('main > section') : null;
+  const onScroll = () => {
+    if (!header) return;
+    header.classList.toggle('scrolled', window.scrollY > 8);
+    if (hero) {
+      const past = hero.getBoundingClientRect().bottom < header.offsetHeight;
+      header.classList.toggle('night', !past);
+      header.classList.toggle('paper', past);
+    }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    if (menu) menu.hidden = open;
+    document.body.style.overflow = open ? '' : 'hidden';
+  });
+</script>

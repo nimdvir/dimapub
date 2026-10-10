@@ -1,0 +1,105 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import LoopMedia from '../components/LoopMedia.astro';
+import { media } from '../lib/media';
+
+const values = [
+  { icon: 'users', title: 'Teachers write our books', body: 'Every title is written by someone who stands in front of students and knows exactly where they get stuck.' },
+  { icon: 'refresh', title: 'Tested, then published', body: 'Chapters are taught, revised and taught again before we call them finished. Students are our toughest editors.' },
+  { icon: 'shield', title: 'Honest about AI', body: 'We use technology where it helps people learn, and design assessments that still ask students to think for themselves.' },
+  { icon: 'layers', title: 'One book, the whole job', body: 'Reading, practice and assessment in one place, so students are not juggling a theory text, a software manual and three logins.' },
+];
+---
+
+<Base title="About" description="Dima Publishing is an independent educational publisher creating books, interactive textbooks and digital learning experiences.">
+  <PageHero
+    eyebrow="About Dima Publishing"
+    title="Small press. <em class='gold'>Serious</em> about learning."
+    lede="We are an independent educational publisher. We make books, interactive textbooks and digital learning experiences for students who deserve better than the way textbooks have always been made."
+  />
+
+  <section class="section">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">Why we exist</p>
+        <h2>Textbooks got heavier. Learning didn’t get easier.</h2>
+        <p class="lede">
+          Too many courses ask students to stitch together a theory book, a software manual, a separate homework
+          platform and a stack of slides, each with its own vocabulary and its own login.
+        </p>
+        <p>
+          We think one well-designed book can do the whole job: explain the idea, let students practice it right away,
+          check what they understood, and ask them to apply it somewhere new. We publish fewer titles so we can make
+          each one that good.
+        </p>
+      </div>
+      <div class="plate reveal" style="--d:.1s">
+        <LoopMedia id={media.reading} width={560} label="Line drawing of Dima the dog reading an open book" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-paper-2">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">What we believe</p>
+        <h2>Four promises to every reader.</h2>
+      </div>
+      <div class="grid cols-4">
+        {
+          values.map((v, i) => (
+            <article class="card reveal" style={`--d:${i * 0.06}s`}>
+              <span class="ico"><Icon name={v.icon} size={24} /></span>
+              <h3>{v.title}</h3>
+              <p>{v.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow center-block reveal">
+      <p class="eyebrow">Write with us</p>
+      <h2>Have a course that deserves a better book?</h2>
+      <p class="lede">
+        We partner with instructors to turn great teaching into great books, and we bring the editing, design and
+        interactive platform. Tell us what you teach and what is missing.
+      </p>
+      <a class="btn" href="/contact/?topic=authors">Pitch your idea <Icon name="arrow" size={18} /></a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .plate {
+    max-width: 420px;
+  }
+  .ico {
+    display: inline-grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: var(--gold-wash);
+    color: var(--gold-deep);
+    margin-bottom: 18px;
+  }
+  .card p {
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .center-block {
+    text-align: center;
+  }
+  .center-block .eyebrow {
+    justify-content: center;
+  }
+  .center-block .lede {
+    margin-inline: auto;
+    margin-bottom: 28px;
+  }
+</style>

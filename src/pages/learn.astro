@@ -1,0 +1,185 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import LoopMedia from '../components/LoopMedia.astro';
+import { site } from '../data/site';
+import { rhythm } from '../data/book';
+import { media } from '../lib/media';
+
+const principles = [
+  {
+    icon: 'compass',
+    title: 'Start with the why',
+    body: 'Every concept arrives attached to a decision someone has to make. Students learn the tool because they need it, not because it is next in the syllabus.',
+  },
+  {
+    icon: 'query',
+    title: 'Learn by doing, right away',
+    body: 'Reading and practice live on the same page. Run the query, change it, break it, fix it. Understanding comes from the hands as much as the eyes.',
+  },
+  {
+    icon: 'refresh',
+    title: 'Practice, then transfer',
+    body: 'Guided work first, then a fresh scenario with less help. Transfer is how you know learning actually happened.',
+  },
+  {
+    icon: 'pen',
+    title: 'Explain your work',
+    body: 'Students submit artifacts they have to defend: designs, queries, reports and memos. It builds real skill and holds up in an AI-enabled classroom.',
+  },
+];
+---
+
+<Base title="Learn" description="How Dima Publishing books teach: interactive reading, hands-on practice, transfer labs and assessments that ask students to explain their work.">
+  <PageHero
+    eyebrow="The learning platform"
+    title="Reading, practice and feedback, <em class='gold'>in one place</em>."
+    lede="Our books are built as learning experiences from the first line. Here is how they work, and where the platform is headed."
+  >
+    <div class="hero-cta reveal" style="--d:.18s">
+      <a class="btn gold" href={site.readerUrl} target="_blank" rel="noopener">Try the interactive reader <Icon name="external" size={16} /></a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">How our books teach</p>
+        <h2>Four principles we don’t compromise on.</h2>
+      </div>
+      <div class="grid cols-4">
+        {
+          principles.map((p, i) => (
+            <article class="card reveal" style={`--d:${i * 0.06}s`}>
+              <span class="ico"><Icon name={p.icon} size={24} /></span>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-night">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">The interactive reader</p>
+        <h2>A textbook that answers back.</h2>
+        <p class="lede">
+          The reader runs in any modern browser. Students move through chapters, run SQL against live practice
+          databases, check their understanding, and pick up exactly where they left off, on any device.
+        </p>
+        <ul class="ticks">
+          <li><Icon name="check" size={18} /> Executable SQL, no installs</li>
+          <li><Icon name="check" size={18} /> Consistent six-part chapters</li>
+          <li><Icon name="check" size={18} /> Updated as tools change, without waiting for a new edition</li>
+        </ul>
+        <a class="btn gold" href={site.readerUrl} target="_blank" rel="noopener">Open the reader <Icon name="external" size={16} /></a>
+      </div>
+      <ol class="rhythm reveal" style="--d:.1s">
+        {
+          rhythm.map((r) => (
+            <li>
+              <span class="n">{r.n}</span>
+              <span>
+                <strong>{r.title}</strong>
+                <em>{r.body}</em>
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="plate reveal">
+        <LoopMedia id={media.diamond} width={640} label="Animated Dima Publishing logo" />
+      </div>
+      <div class="reveal" style="--d:.08s">
+        <p class="eyebrow">What’s next</p>
+        <h2>A home for courses, not just chapters.</h2>
+        <p class="lede">
+          We are building toward a dedicated learning space for Dima titles: course shells instructors can adopt in a
+          click, progress students can see, and practice that adapts to where each learner is.
+        </p>
+        <p>Want to help shape it, or pilot it with a section next term?</p>
+        <a class="btn" href="/contact/?topic=partnerships">Get involved <Icon name="arrow" size={18} /></a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-cta {
+    margin-top: 28px;
+  }
+  .ico {
+    display: inline-grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: var(--gold-wash);
+    color: var(--gold-deep);
+    margin-bottom: 18px;
+  }
+  .card p {
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .ticks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: grid;
+    gap: 10px;
+  }
+  .ticks li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: var(--night-text);
+  }
+  .ticks :global(svg) {
+    color: var(--gold-bright);
+    flex-shrink: 0;
+  }
+  .rhythm {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .rhythm li {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(233, 228, 216, 0.1);
+  }
+  .rhythm .n {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--gold-bright);
+    line-height: 1.1;
+  }
+  .rhythm strong {
+    display: block;
+    color: #f6f1e4;
+  }
+  .rhythm em {
+    font-style: normal;
+    font-size: 0.92rem;
+    color: var(--night-muted);
+  }
+  .plate {
+    max-width: 440px;
+  }
+</style>

@@ -1,0 +1,22 @@
+---
+import Base from './Base.astro';
+import PageHero from '../components/PageHero.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  updated: string;
+}
+const { title, description, updated } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <PageHero eyebrow={`Last updated ${updated}`} title={title} />
+  <section class="section tight">
+    <div class="container">
+      <article class="prose">
+        <slot />
+      </article>
+    </div>
+  </section>
+</Base>

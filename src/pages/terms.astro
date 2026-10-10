@@ -1,0 +1,82 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { site } from '../data/site';
+---
+
+<Legal title="Terms of Service" description="The terms that apply when you use Dima Publishing websites, books and digital products." updated="October 10, 2026">
+  <p>
+    These terms apply to dimapub.com, the Dima Publishing interactive reader, and any books, digital textbooks,
+    subscriptions or services we offer (together, the “Services”). By using the Services or making a purchase, you agree
+    to these terms. If you are using the Services on behalf of a school or organization, you confirm that you are allowed
+    to accept these terms for it.
+  </p>
+
+  <h2>What we sell</h2>
+  <p>
+    Dima Publishing sells educational content, including digital textbooks delivered through our online reader,
+    instructor materials, and course or institutional access licenses. Each product page describes what is included,
+    the format, and how long access lasts. Prices are shown at checkout in U.S. dollars unless stated otherwise.
+  </p>
+
+  <h2>Accounts and access</h2>
+  <ul>
+    <li>Some Services require an account. Keep your sign-in details private and tell us right away if you think someone else has used them.</li>
+    <li>Access you buy is personal to you (or to the seats your institution licensed) and may not be shared, resold or transferred.</li>
+    <li>Course access may be limited to a term or a set period, as described when you purchase.</li>
+  </ul>
+
+  <h2>Payments</h2>
+  <p>
+    Payments are processed securely by our payment provider, Stripe. We never see or store your full card number. By
+    purchasing, you authorize the charge shown at checkout, including any applicable taxes. If a purchase renews
+    automatically, we will say so clearly before you buy, and you can cancel future renewals at any time.
+  </p>
+
+  <h2>Refunds</h2>
+  <p>Refunds are handled under our <a href="/refunds/">Refund Policy</a>.</p>
+
+  <h2>Your use of our content</h2>
+  <p>
+    All books, text, images, code examples, datasets, assessments and designs in the Services belong to Dima Publishing
+    or its authors and licensors and are protected by copyright. You may use them for your own learning and, for
+    instructors, for teaching the courses you have access for. Please do not copy, redistribute, scrape, upload to other
+    sites, or use our content to train machine-learning models without written permission.
+  </p>
+
+  <h2>Acceptable use</h2>
+  <ul>
+    <li>Don’t try to break, overload or get around the security of the Services.</li>
+    <li>Don’t use the Services to break the law or anyone’s rights, including academic-integrity rules at your school.</li>
+    <li>Don’t share answer keys or instructor-only materials with students.</li>
+  </ul>
+
+  <h2>Changes and availability</h2>
+  <p>
+    Digital books get better over time. We may update, correct or reorganize content, and we may change or retire
+    features. If a change materially reduces something you paid for during your access period, contact us and we will make
+    it right.
+  </p>
+
+  <h2>Disclaimers and limits</h2>
+  <p>
+    The Services are provided “as is.” We work hard to keep content accurate and the reader available, but we cannot
+    promise they will be error-free or uninterrupted. To the fullest extent the law allows, Dima Publishing is not liable
+    for indirect or consequential losses, and our total liability for any claim is limited to the amount you paid us for
+    the Service in question during the twelve months before the claim.
+  </p>
+
+  <h2>Ending access</h2>
+  <p>
+    You can stop using the Services at any time. We may suspend accounts that break these terms. Sections about
+    ownership, disclaimers and limits continue to apply after access ends.
+  </p>
+
+  <h2>Changes to these terms</h2>
+  <p>
+    We may update these terms from time to time. We will change the date above and, for significant changes, let
+    account holders know. Continuing to use the Services means you accept the updated terms.
+  </p>
+
+  <h2>Contact</h2>
+  <p>Questions about these terms? Email <a href={`mailto:${site.email}`}>{site.email}</a> or use our <a href="/contact/">contact form</a>.</p>
+</Legal>

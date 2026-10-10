@@ -1,0 +1,196 @@
+---
+import Wordmark from './Wordmark.astro';
+import Icon from './Icon.astro';
+import { site, book } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer on-night">
+  <div class="container">
+    <div class="top">
+      <div class="brand-col">
+        <Wordmark tone="light" size="l" />
+        <p class="mission">
+          Books, interactive textbooks, and digital learning experiences, made for the way people actually learn.
+        </p>
+        <form class="updates" data-subscribe novalidate>
+          <label for="footer-email">Get new chapters, titles and resources</label>
+          <div class="row">
+            <input id="footer-email" name="email" type="email" placeholder="you@school.edu" autocomplete="email" required />
+            <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button class="btn gold small" type="submit">Subscribe</button>
+          </div>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <nav class="cols" aria-label="Footer">
+        <div>
+          <h4>Read</h4>
+          <ul>
+            <li><a href={`/books/${book.slug}/`}>Using Data to Drive Business Performance</a></li>
+            <li><a href={site.readerUrl} target="_blank" rel="noopener">Interactive reader <Icon name="external" size={13} /></a></li>
+            <li><a href="/books/">All books</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Teach &amp; learn</h4>
+          <ul>
+            <li><a href="/learn/">How our books teach</a></li>
+            <li><a href="/resources/">Instructor resources</a></li>
+            <li><a href="/contact/?topic=adoption">Adopt for a course</a></li>
+            <li><a href="/contact/?topic=authors">Publish with us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/portal/">Partner portal</a></li>
+            <li><a href="/dima/">For Dima <Icon name="heart" size={13} /></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="bottom">
+      <p>© {year} Dima Publishing. All rights reserved.</p>
+      <ul>
+        <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li><a href="/terms/">Terms</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/refunds/">Refunds</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: clamp(64px, 9vw, 110px) 0 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .top {
+    display: grid;
+    grid-template-columns: 1.1fr 1.4fr;
+    gap: clamp(40px, 6vw, 96px);
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(233, 228, 216, 0.1);
+  }
+  .mission {
+    margin: 22px 0 28px;
+    max-width: 30em;
+    font-size: 0.98rem;
+  }
+  .updates label {
+    display: block;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 10px;
+  }
+  .updates .row {
+    display: flex;
+    gap: 8px;
+    max-width: 440px;
+  }
+  .updates input[type='email'] {
+    flex: 1;
+    min-width: 0;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(233, 228, 216, 0.2);
+    color: var(--night-text);
+    border-radius: 999px;
+    padding: 0.7em 1.1em;
+    font: inherit;
+    font-size: 0.92rem;
+  }
+  .updates input[type='email']::placeholder {
+    color: rgba(233, 228, 216, 0.45);
+  }
+  .updates input[type='email']:focus {
+    outline: none;
+    border-color: var(--gold-bright);
+  }
+  .updates .form-status {
+    margin-top: 10px;
+    font-size: 0.85rem;
+  }
+  .updates .form-status.ok {
+    color: #9bd3a7;
+  }
+  .updates .form-status.err {
+    color: #f0a59b;
+  }
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  h4 {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 18px;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .cols li {
+    margin-bottom: 10px;
+  }
+  .cols a,
+  .bottom a {
+    color: var(--night-text);
+    opacity: 0.78;
+    text-decoration: none;
+    font-size: 0.93rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+  }
+  .cols a:hover,
+  .bottom a:hover {
+    opacity: 1;
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 28px;
+    font-size: 0.85rem;
+  }
+  .bottom p {
+    margin: 0;
+  }
+  .bottom ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+  .bottom a {
+    font-size: 0.85rem;
+  }
+  @media (max-width: 860px) {
+    .top {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .cols {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
