@@ -1,0 +1,75 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { site } from '../data/site';
+---
+
+<Legal title="Privacy Policy" description="How Dima Publishing collects, uses and protects personal information." updated="October 10, 2026">
+  <p>
+    This policy explains what personal information Dima Publishing collects through dimapub.com, our interactive reader
+    and related services, how we use it, and the choices you have. The short version: we collect what we need to run the
+    Services and answer you, we don’t sell your data, and you can ask us to delete it.
+  </p>
+
+  <h2>What we collect</h2>
+  <ul>
+    <li><strong>Things you send us.</strong> When you use the contact form or join our updates list, we collect your name, email, organization (if you share it) and your message.</li>
+    <li><strong>Account information.</strong> If you have an account, we store your email address and sign-in details. Passwords are handled by our authentication provider and are never visible to us.</li>
+    <li><strong>Purchases.</strong> Payments are processed by Stripe. We receive confirmation of what you bought and basic billing details, but never your full card number.</li>
+    <li><strong>Technical data.</strong> Like most websites, our hosting providers record standard technical information such as browser type and pages requested. To prevent spam, we store a one-way hash of the IP address used to send a contact form, not the address itself.</li>
+  </ul>
+
+  <h2>How we use it</h2>
+  <ul>
+    <li>To answer your questions and requests.</li>
+    <li>To provide access to the books and services you are entitled to.</li>
+    <li>To send updates you asked for. Every update includes a way to unsubscribe.</li>
+    <li>To keep the Services secure and working well.</li>
+    <li>To meet legal, tax and accounting obligations.</li>
+  </ul>
+
+  <h2>Who we share it with</h2>
+  <p>
+    We use a small number of trusted service providers to run the Services, including Supabase (database and sign-in),
+    Stripe (payments), Resend (email delivery), Cloudinary (images and video) and GitHub Pages and Vercel (hosting). They
+    process data only to provide their services to us. We do not sell or rent personal information, and we do not share it
+    for advertising.
+  </p>
+
+  <h2>Students and schools</h2>
+  <p>
+    When an institution provides our books to its students, we use student information only to provide the Services to
+    that institution and its students, and we support institutions in meeting their obligations under laws such as
+    FERPA. Our Services are intended for users 13 and older.
+  </p>
+
+  <h2>How long we keep it</h2>
+  <p>
+    We keep messages and account information for as long as needed to help you and run the Services, and purchase
+    records for as long as the law requires. You can ask us to delete your information at any time.
+  </p>
+
+  <h2>Your choices and rights</h2>
+  <p>
+    You can ask to see, correct, export or delete your personal information, or to unsubscribe from updates, by emailing
+    <a href={`mailto:${site.email}`}>{site.email}</a>. Depending on where you live, you may have additional rights under
+    local law, and we will honor them.
+  </p>
+
+  <h2>Cookies</h2>
+  <p>
+    dimapub.com does not use advertising or tracking cookies. If you sign in, your browser stores a session token so you
+    stay signed in.
+  </p>
+
+  <h2>Security</h2>
+  <p>
+    We use encryption in transit, access controls and row-level database security to protect your information. No system
+    is perfect, but we take the job seriously and will tell you promptly if something goes wrong that affects you.
+  </p>
+
+  <h2>Changes</h2>
+  <p>If we change this policy, we will update the date above and, for significant changes, let account holders know.</p>
+
+  <h2>Contact</h2>
+  <p>Questions or requests: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+</Legal>

@@ -1,0 +1,452 @@
+---
+import Galaxy from '../components/Galaxy.astro';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Diamond from '../components/Diamond.astro';
+---
+
+<Base title="Partner portal" description="Private research and briefing materials for approved Dima Publishing partners." headerTone="night" noindex>
+  <section class="portal on-night">
+    <Galaxy />
+    <div class="container">
+      <!-- Loading -->
+      <div class="state" data-state="loading">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Checking your session…</p>
+      </div>
+
+      <!-- Signed out -->
+      <div class="state auth" data-state="signed-out" hidden>
+        <div class="auth-intro">
+          <Diamond size={46} />
+          <p class="eyebrow">Partner portal</p>
+          <h1>Research &amp; briefings</h1>
+          <p class="lede">
+            Market research, positioning and partner materials for approved collaborators. Sign in with the account we
+            created for you.
+          </p>
+          <p class="small">
+            Need access? <a href="/contact/?topic=portal">Request it here</a>.
+          </p>
+        </div>
+        <form class="auth-card" data-login>
+          <h2>Sign in</h2>
+          <div class="field">
+            <label for="p-email">Email</label>
+            <input id="p-email" name="email" type="email" autocomplete="username" required />
+          </div>
+          <div class="field">
+            <label for="p-password">Password</label>
+            <input id="p-password" name="password" type="password" autocomplete="current-password" required />
+          </div>
+          <button class="btn gold" type="submit"><Icon name="lock" size={16} /> Sign in</button>
+          <button class="linkish" type="button" data-forgot>Forgot your password?</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- Password recovery -->
+      <div class="state auth" data-state="recovery" hidden>
+        <div class="auth-intro">
+          <Diamond size={46} />
+          <h1>Choose a new password</h1>
+          <p class="lede">Pick something at least 10 characters long.</p>
+        </div>
+        <form class="auth-card" data-newpass>
+          <div class="field">
+            <label for="p-new">New password</label>
+            <input id="p-new" name="password" type="password" minlength="10" autocomplete="new-password" required />
+          </div>
+          <button class="btn gold" type="submit">Save password</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- Signed in, not on the list -->
+      <div class="state center" data-state="no-access" hidden>
+        <Diamond size={46} />
+        <h1>You’re signed in, but not on the list yet.</h1>
+        <p class="lede">This account doesn’t have portal access. If you think it should, let us know and we’ll sort it out.</p>
+        <div class="row">
+          <a class="btn gold" href="/contact/?topic=portal">Request access</a>
+          <button class="btn ghost" type="button" data-signout>Sign out</button>
+        </div>
+      </div>
+
+      <!-- Member -->
+      <div class="state" data-state="member" hidden>
+        <div class="member-head">
+          <div>
+            <p class="eyebrow">Partner portal</p>
+            <h1>Research &amp; briefings</h1>
+            <p class="who">Signed in as <strong data-email></strong></p>
+          </div>
+          <button class="btn ghost small" type="button" data-signout><Icon name="logout" size={16} /> Sign out</button>
+        </div>
+        <div class="reports" data-reports></div>
+        <div class="empty" data-empty hidden>
+          <Icon name="doc" size={30} />
+          <h2>No reports published yet</h2>
+          <p>New research will appear here as soon as it is added.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .portal {
+    min-height: 100dvh;
+    margin-top: calc(var(--header-h) * -1);
+    padding: calc(var(--header-h) + clamp(40px, 7vw, 100px)) 0 clamp(48px, 8vw, 110px);
+  }
+  .state[hidden] {
+    display: none !important;
+  }
+  [data-state='loading'] {
+    display: grid;
+    place-items: center;
+    gap: 16px;
+    min-height: 40vh;
+  }
+  .spinner {
+    width: 34px;
+    height: 34px;
+    border: 2px solid rgba(220, 182, 94, 0.25);
+    border-top-color: var(--gold-bright);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .auth {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: center;
+  }
+  .auth-intro :global(svg) {
+    margin-bottom: 26px;
+  }
+  .auth h1,
+  .member-head h1,
+  .center h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+  }
+  .small {
+    font-size: 0.95rem;
+  }
+  .small a {
+    color: var(--gold-bright);
+  }
+  .auth-card {
+    display: grid;
+    gap: 18px;
+    padding: clamp(26px, 4vw, 40px);
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-l);
+  }
+  .auth-card h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--ink) !important;
+  }
+  .auth-card .btn {
+    width: 100%;
+  }
+  .auth-card .form-status {
+    color: var(--ink-soft);
+  }
+  .linkish {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 0.88rem;
+    color: var(--gold-deep);
+    cursor: pointer;
+    justify-self: start;
+  }
+  .center {
+    text-align: center;
+    max-width: 640px;
+    margin-inline: auto;
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .member-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 32px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(233, 228, 216, 0.12);
+  }
+  .who {
+    margin: 0;
+  }
+  .who strong {
+    color: var(--night-text);
+  }
+  .reports {
+    display: grid;
+    gap: 40px;
+  }
+  .empty {
+    text-align: center;
+    padding: 64px 20px;
+    border: 1px dashed rgba(233, 228, 216, 0.2);
+    border-radius: var(--radius-l);
+  }
+  .empty :global(svg) {
+    margin: 0 auto 16px;
+    color: var(--gold-bright);
+  }
+  @media (max-width: 900px) {
+    .auth {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* report cards are rendered by script, so their styles are global */
+  :global(.r-group h2) {
+    font-size: 1.4rem;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 16px;
+  }
+  :global(.r-list) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: 16px;
+  }
+  :global(.r-card) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 26px;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(233, 228, 216, 0.12);
+    transition:
+      border-color 0.3s,
+      transform 0.4s var(--ease);
+  }
+  :global(.r-card:hover) {
+    border-color: rgba(220, 182, 94, 0.6);
+    transform: translateY(-3px);
+  }
+  :global(.r-card time) {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--night-muted);
+  }
+  :global(.r-card h3) {
+    font-size: 1.35rem;
+    margin: 0;
+  }
+  :global(.r-card p) {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  :global(.r-actions) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+  :global(.r-body) {
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+    color: var(--night-text);
+    border-top: 1px solid rgba(233, 228, 216, 0.12);
+    padding-top: 14px;
+  }
+</style>
+
+<script>
+  import { createClient, type Session } from '@supabase/supabase-js';
+  import { site } from '../data/site';
+
+  type Report = {
+    id: string;
+    title: string;
+    summary: string | null;
+    category: string;
+    published_on: string;
+    body_md: string | null;
+    file_path: string | null;
+    external_url: string | null;
+  };
+
+  const supabase = createClient(site.supabase.url, site.supabase.key, {
+    auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+  });
+
+  const states = document.querySelectorAll<HTMLElement>('[data-state]');
+  function show(name: string) {
+    states.forEach((s) => (s.hidden = s.dataset.state !== name));
+  }
+  function status(form: HTMLFormElement, text: string, kind: 'ok' | 'err' | '' = '') {
+    const el = form.querySelector<HTMLElement>('.form-status');
+    if (el) {
+      el.textContent = text;
+      el.className = `form-status ${kind}`;
+    }
+  }
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, text?: string) {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  async function openFile(path: string) {
+    const { data, error } = await supabase.storage.from('research').createSignedUrl(path, 60 * 30);
+    if (error || !data) {
+      alert('That file could not be opened. Please try again.');
+      return;
+    }
+    window.open(data.signedUrl, '_blank', 'noopener');
+  }
+
+  function renderReports(reports: Report[]) {
+    const root = document.querySelector<HTMLElement>('[data-reports]')!;
+    const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+    root.replaceChildren();
+    empty.hidden = reports.length > 0;
+
+    const groups = new Map<string, Report[]>();
+    for (const r of reports) groups.set(r.category, [...(groups.get(r.category) ?? []), r]);
+
+    for (const [category, items] of groups) {
+      const group = el('section', 'r-group');
+      group.append(el('h2', '', category));
+      const list = el('div', 'r-list');
+      for (const r of items) {
+        const card = el('article', 'r-card');
+        const time = el('time', '', new Date(r.published_on + 'T12:00:00').toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }));
+        time.setAttribute('datetime', r.published_on);
+        card.append(time, el('h3', '', r.title));
+        if (r.summary) card.append(el('p', '', r.summary));
+        const actions = el('div', 'r-actions');
+        if (r.file_path) {
+          const b = el('button', 'btn gold small', 'Open file');
+          b.type = 'button';
+          b.addEventListener('click', () => openFile(r.file_path!));
+          actions.append(b);
+        }
+        if (r.external_url) {
+          const a = el('a', 'btn ghost small', 'Open link');
+          a.href = r.external_url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          actions.append(a);
+        }
+        if (r.body_md) {
+          const body = el('div', 'r-body', r.body_md);
+          body.hidden = true;
+          const t = el('button', 'btn ghost small', 'Read here');
+          t.type = 'button';
+          t.addEventListener('click', () => {
+            body.hidden = !body.hidden;
+            t.textContent = body.hidden ? 'Read here' : 'Hide';
+          });
+          actions.append(t);
+          card.append(actions, body);
+        } else {
+          card.append(actions);
+        }
+        list.append(card);
+      }
+      group.append(list);
+      root.append(group);
+    }
+  }
+
+  let recovering = false;
+
+  async function route(session: Session | null) {
+    if (recovering) return show('recovery');
+    if (!session) return show('signed-out');
+
+    const { data: member } = await supabase.from('portal_members').select('email').maybeSingle();
+    if (!member) return show('no-access');
+
+    document.querySelector('[data-email]')!.textContent = session.user.email ?? '';
+    const { data, error } = await supabase
+      .from('research_reports')
+      .select('id,title,summary,category,published_on,body_md,file_path,external_url')
+      .order('sort_order', { ascending: true })
+      .order('published_on', { ascending: false });
+    renderReports(error ? [] : (data as Report[]));
+    show('member');
+  }
+
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'PASSWORD_RECOVERY') recovering = true;
+    // Defer so Supabase finishes its own bookkeeping before we query.
+    setTimeout(() => route(session), 0);
+  });
+
+  document.querySelector<HTMLFormElement>('[data-login]')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement;
+    const fd = new FormData(form);
+    status(form, 'Signing in…');
+    const { error } = await supabase.auth.signInWithPassword({
+      email: String(fd.get('email')).trim(),
+      password: String(fd.get('password')),
+    });
+    if (error) status(form, 'That email and password don’t match an account.', 'err');
+    else status(form, '');
+  });
+
+  document.querySelector<HTMLButtonElement>('[data-forgot]')?.addEventListener('click', async () => {
+    const form = document.querySelector<HTMLFormElement>('[data-login]')!;
+    const email = (form.querySelector('#p-email') as HTMLInputElement).value.trim();
+    if (!email) return status(form, 'Enter your email above first, then tap “Forgot your password?”.', 'err');
+    await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}/portal/` });
+    status(form, 'If that address has an account, a reset link is on its way.', 'ok');
+  });
+
+  document.querySelector<HTMLFormElement>('[data-newpass]')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement;
+    const password = String(new FormData(form).get('password'));
+    const { error } = await supabase.auth.updateUser({ password });
+    if (error) return status(form, error.message, 'err');
+    recovering = false;
+    status(form, 'Saved.', 'ok');
+    const { data } = await supabase.auth.getSession();
+    route(data.session);
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('[data-signout]').forEach((b) =>
+    b.addEventListener('click', async () => {
+      await supabase.auth.signOut();
+      show('signed-out');
+    }),
+  );
+</script>

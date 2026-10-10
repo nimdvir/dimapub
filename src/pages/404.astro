@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import LoopMedia from '../components/LoopMedia.astro';
+import Icon from '../components/Icon.astro';
+import { media } from '../lib/media';
+---
+
+<Base title="Page not found" noindex>
+  <section class="section nf">
+    <div class="container narrow">
+      <div class="plate">
+        <LoopMedia id={media.reading} width={560} label="Dima reading a book" eager />
+      </div>
+      <p class="eyebrow">404</p>
+      <h1>Dima looked everywhere.</h1>
+      <p class="lede">This page isn’t on the shelf. It may have moved, or the link may have a typo.</p>
+      <div class="row">
+        <a class="btn" href="/">Back home <Icon name="arrow" size={18} /></a>
+        <a class="btn ghost" href="/books/">Browse books</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    text-align: center;
+  }
+  .plate {
+    max-width: 260px;
+    margin-bottom: 36px;
+  }
+  .eyebrow {
+    justify-content: center;
+  }
+  .lede {
+    margin-inline: auto;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+  }
+</style>

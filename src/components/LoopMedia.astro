@@ -1,0 +1,40 @@
+---
+// Plays a Cloudinary-optimized loop (converted from the original GIF or video).
+// Autoplays muted; holds on the poster frame for visitors who prefer reduced motion.
+import { gifVideo, video } from '../lib/media';
+
+interface Props {
+  id: string;
+  width: number;
+  kind?: 'gif' | 'video';
+  label: string;
+  class?: string;
+  blend?: boolean;
+  eager?: boolean;
+}
+const { id, width, kind = 'gif', label, class: className = '', blend = false, eager = false } = Astro.props;
+const src = kind === 'gif' ? gifVideo(id, width) : video(id, width);
+---
+
+<video
+  class:list={['loop-media', className, { blend }]}
+  autoplay
+  muted
+  loop
+  playsinline
+  preload={eager ? 'auto' : 'metadata'}
+  poster={src.poster}
+  aria-label={label}
+  data-loop
+>
+  <source src={src.webm} type="video/webm" />
+  <source src={src.mp4} type="video/mp4" />
+</video>
+
+<style>
+  .loop-media {
+    width: 100%;
+    height: auto;
+    background: transparent;
+  }
+</style>

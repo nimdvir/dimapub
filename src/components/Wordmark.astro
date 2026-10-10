@@ -1,0 +1,56 @@
+---
+import Diamond from './Diamond.astro';
+interface Props {
+  tone?: 'ink' | 'light' | 'inherit';
+  size?: 'm' | 'l';
+}
+const { tone = 'ink', size = 'm' } = Astro.props;
+---
+
+<span class:list={['wordmark', tone, size]}>
+  <Diamond size={size === 'l' ? 40 : 30} />
+  <span class="words">
+    <span class="dima">DIMA</span>
+    <span class="pub">Publishing</span>
+  </span>
+</span>
+
+<style>
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+  }
+  .wordmark.light {
+    color: #f6f1e4;
+  }
+  .wordmark.inherit {
+    color: inherit;
+  }
+  .words {
+    display: grid;
+    line-height: 1;
+  }
+  .dima {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.32rem;
+    letter-spacing: 0.14em;
+    font-variation-settings: 'opsz' 144, 'SOFT' 0;
+  }
+  .pub {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    opacity: 0.72;
+  }
+  .l .dima {
+    font-size: 1.8rem;
+  }
+  .l .pub {
+    font-size: 0.7rem;
+  }
+</style>

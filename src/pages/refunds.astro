@@ -1,0 +1,46 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { site } from '../data/site';
+---
+
+<Legal title="Refund Policy" description="Refunds, cancellations and access issues for Dima Publishing purchases." updated="October 10, 2026">
+  <p>
+    We want you to be happy with what you buy from us. If something isn’t right, tell us and we will fix it or give your
+    money back.
+  </p>
+
+  <h2>Digital books and individual access</h2>
+  <p>
+    You can request a full refund within <strong>14 days</strong> of purchase for any individual digital book or reader
+    access. Just email <a href={`mailto:${site.email}`}>{site.email}</a> with the email address you used to buy and your
+    order details. Once a refund is issued, access to the purchased content ends.
+  </p>
+
+  <h2>Subscriptions and renewals</h2>
+  <p>
+    If a product renews automatically, you can cancel at any time and you will keep access until the end of the period
+    you already paid for. If you are charged for a renewal you didn’t mean to keep, contact us within 14 days of the
+    renewal date for a full refund of that renewal.
+  </p>
+
+  <h2>Course, department and campus licenses</h2>
+  <p>
+    Institutional purchases are governed by the agreement or quote signed with your institution, including its
+    cancellation and refund terms. Contact us if you need to change seat counts or terms mid-term.
+  </p>
+
+  <h2>Technical problems</h2>
+  <p>
+    If you can’t access something you paid for, contact us first. We will try to fix it quickly, and if we can’t, we
+    will refund you in full regardless of the 14-day window.
+  </p>
+
+  <h2>How refunds are paid</h2>
+  <p>
+    Refunds go back to the original payment method through Stripe. They usually appear within 5–10 business days,
+    depending on your bank.
+  </p>
+
+  <h2>Questions</h2>
+  <p>Email <a href={`mailto:${site.email}`}>{site.email}</a> or use our <a href="/contact/?topic=support">contact form</a>.</p>
+</Legal>
