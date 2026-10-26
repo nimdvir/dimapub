@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta content="default-src 'none'; style-src 'unsafe-inline'; img-src data:;" http-equiv="Content-Security-Policy"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MIS Database Textbook Market Analysis</title>
+
+
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .vibrant-card {
+            background: white;
+            border-top: 4px solid #0070C0;
+        }
+        .accent-border {
+            border-left: 4px solid #FFC000;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8"><div style="background:#fff0c9;color:#342b18;padding:22px;font:16px/1.5 sans-serif;border:3px solid #a67725">PRIOR RESEARCH EXHIBIT. Claims may be outdated or unverified. This is a sanitized review copy; scripts, forms and remote embeds are disabled. Use the new proposal and source register for publisher-facing claims.</div>
+<!-- 
+PALETTE: Brilliant Blues
+Primary: #002060 (Deep Navy)
+Secondary: #0070C0 (Royal Blue)
+Accent 1: #00B0F0 (Sky Blue)
+Accent 2: #FFC000 (Vibrant Gold)
+Text: #1e293b
+
+PLAN SUMMARY:
+1. Introduction: Contextualizing the shift in MIS education and the Database textbook mission.
+2. Section 1: The Enrollment Growth Trend (Line Chart) showing rising demand for MIS.
+3. Section 2: Competitive Landscape Audit (Radar/Bar) comparing existing texts on Theory vs. Application.
+4. Section 3: The Curriculum Bridge (HTML/CSS Diagram) visualizing the integration of Theory, SQL, and VBA.
+5. Section 4: Total Addressable Market (Donut Charts) breaking down AACSB institutions and IS concentrations.
+6. Conclusion: The Strategic USP for Market Disruption.
+
+VISUALIZATION JUSTIFICATION:
+- Enrollment Trend -> Change -> Line Chart (Chart.js): Best for showing growth over years.
+- Textbook Comparison -> Compare -> Radar Chart (Chart.js): Visualizes multi-dimensional strengths/weaknesses across 5 metrics.
+- TAM Breakdown -> Composition -> Donut Chart (Chart.js): Clear representation of market share.
+- Curriculum Flow -> Process -> HTML/CSS Blocks: Highlighting the "Full-Stack Business Student" path without SVG.
+
+NO MERMAID JS OR SVG USED IN THIS FILE.
+-->
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<header class="mb-12 text-center">
+<h1 class="text-4xl md:text-5xl font-bold text-[#002060] mb-4">Strategic Market Analysis</h1>
+<p class="text-xl text-[#0070C0] font-semibold uppercase tracking-wide">A New Era for MIS Database Education</p>
+<div class="w-24 h-1 bg-[#FFC000] mx-auto mt-6"></div>
+</header>
+<!-- Intro Text -->
+<div class="mb-12 bg-white p-8 rounded-xl shadow-lg border-l-8 border-[#0070C0]">
+<p class="text-lg leading-relaxed italic">
+            The landscape of Management Information Systems (MIS) is shifting from monolithic relational theory toward cloud-native, applied environments. Modern business graduates must move beyond "understanding" data to "building" solutions. This analysis defines the opportunity for a textbook that bridges the gap between deep theory and programmatic business application using Access, VBA, and SQL.
+        </p>
+</div>
+<!-- Main Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+<!-- Section 1: Enrollment Growth -->
+<div class="vibrant-card rounded-xl shadow-md p-6">
+<h2 class="text-2xl font-bold text-[#002060] mb-4">Rising Demand in MIS</h2>
+<p class="mb-6 text-sm text-gray-600">
+                Data from AACSB highlights a 5.7% growth in business school enrollments since 2020, with a significant resurgence in "career-aligned" technical skills like database management and business analytics.
+            </p>
+<div class="chart-container">
+<canvas id="enrollmentChart"></canvas>
+</div>
+<p class="mt-4 text-sm font-medium text-[#0070C0]">Key Takeaway: The market for IS-specific learning materials is expanding alongside the corporate need for data-literate managers.</p>
+</div>
+<!-- Section 2: Competitive Audit -->
+<div class="vibrant-card rounded-xl shadow-md p-6">
+<h2 class="text-2xl font-bold text-[#002060] mb-4">Competitive Analysis</h2>
+<p class="mb-6 text-sm text-gray-600">
+                Comparing the proposed text against industry standard incumbents. While legacy texts excel in theory, they fail to provide the integrated "full-stack" application development necessary for modern courses.
+            </p>
+<div class="chart-container">
+<canvas id="comparisonChart"></canvas>
+</div>
+<p class="mt-4 text-sm font-medium text-[#0070C0]">Key Takeaway: Existing texts force instructors to use "Theory" and "Manual" supplements; our text consolidates both.</p>
+</div>
+<!-- Section 3: The Integrated Bridge (Full Width) -->
+<div class="md:col-span-2 bg-[#002060] rounded-xl shadow-xl p-8 text-white">
+<h2 class="text-3xl font-bold mb-6 text-center">The Curriculum "Bridge"</h2>
+<p class="text-center mb-10 max-w-2xl mx-auto opacity-90">
+                Traditional pedagogy separates theory from practice. The Database textbook model integrates these into a single narrative flow, moving from logical modeling to automated business performance.
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+<div class="p-4 bg-[#0070C0] rounded-lg border-b-4 border-[#FFC000]">
+<span class="block text-3xl mb-2">📐</span>
+<h3 class="font-bold mb-1">Phase 1</h3>
+<p class="text-xs">Conceptual Design &amp; Normalization</p>
+</div>
+<div class="p-4 bg-[#00B0F0] rounded-lg border-b-4 border-[#FFC000]">
+<span class="block text-3xl mb-2">💻</span>
+<h3 class="font-bold mb-1">Phase 2</h3>
+<p class="text-xs">SQL Mastery &amp; Query Optimization</p>
+</div>
+<div class="p-4 bg-[#0070C0] rounded-lg border-b-4 border-[#FFC000]">
+<span class="block text-3xl mb-2">⚙️</span>
+<h3 class="font-bold mb-1">Phase 3</h3>
+<p class="text-xs">VBA &amp; Programmatic Automation</p>
+</div>
+<div class="p-4 bg-[#00B0F0] rounded-lg border-b-4 border-[#FFC000]">
+<span class="block text-3xl mb-2">🚀</span>
+<h3 class="font-bold mb-1">Phase 4</h3>
+<p class="text-xs">Improving Business Performance</p>
+</div>
+</div>
+</div>
+<!-- Section 4: TAM Analysis (Donut) -->
+<div class="vibrant-card rounded-xl shadow-md p-6">
+<h2 class="text-2xl font-bold text-[#002060] mb-4">Total Addressable Market</h2>
+<p class="mb-6 text-sm text-gray-600">
+                Quantifying the opportunity: 1,077 AACSB institutions globally, with over 350 domestic premium targets offering IS majors.
+            </p>
+<div class="chart-container">
+<canvas id="tamChart"></canvas>
+</div>
+<p class="mt-4 text-sm font-medium text-[#0070C0]">Key Takeaway: 64% of AACSB schools maintain a dedicated IS concentration, representing a massive capture opportunity.</p>
+</div>
+<!-- Section 5: Institutional Focus -->
+<div class="vibrant-card rounded-xl shadow-md p-6">
+<h2 class="text-2xl font-bold text-[#002060] mb-4">Institutional Benchmarking</h2>
+<p class="mb-6 text-sm text-gray-600">
+                Peer institutions like Binghamton, Baruch, and Penn State validate the need for a curriculum that moves from logical design to physical application.
+            </p>
+<div class="space-y-4">
+<div class="accent-border p-3 bg-blue-50">
+<p class="font-bold text-[#002060]">SUNY Binghamton</p>
+<p class="text-xs">Focus: Relational model &amp; procedural languages.</p>
+</div>
+<div class="accent-border p-3 bg-blue-50">
+<p class="font-bold text-[#002060]">Baruch College</p>
+<p class="text-xs">Focus: Transaction processing &amp; ER Modeling.</p>
+</div>
+<div class="accent-border p-3 bg-blue-50">
+<p class="font-bold text-[#002060]">SUNY Buffalo</p>
+<p class="text-xs">Focus: Prototype development &amp; CRM integration.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Final CTA -->
+<footer class="bg-white rounded-xl shadow-lg p-10 text-center border-t-8 border-[#FFC000]">
+<h2 class="text-3xl font-bold text-[#002060] mb-4">The Unique Selling Proposition</h2>
+<p class="text-gray-700 max-w-3xl mx-auto leading-relaxed mb-6">
+            By eliminating the "Theory vs. Manual" dichotomy, our textbook offers a <strong>Turnkey Solution</strong> for faculty. It provides cost consolidation for students and resume-ready skills (VBA/SQL) that align with AACSB’s mandate for <strong>Societal Impact</strong> and <strong>Workforce Readiness</strong>.
+        </p>
+<div class="inline-block bg-[#0070C0] text-white px-8 py-3 rounded-full font-bold shadow-lg">
+            350+ Targeted Domestic Institutions
+        </div>
+</footer>
+</div>
+
+</body>
+</html>

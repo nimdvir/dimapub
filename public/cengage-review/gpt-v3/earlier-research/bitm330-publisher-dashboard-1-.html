@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta content="default-src 'none'; style-src 'unsafe-inline'; img-src data:;" http-equiv="Content-Security-Policy"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BITM330 Publisher Dashboard</title>
+<!-- Fonts -->
+
+
+
+<!-- Tailwind CSS -->
+
+
+<!-- Phosphor Icons -->
+
+<!-- Chart.js -->
+
+<style>
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-900 pb-12 overflow-x-hidden"><div style="background:#fff0c9;color:#342b18;padding:22px;font:16px/1.5 sans-serif;border:3px solid #a67725">PRIOR RESEARCH EXHIBIT. Claims may be outdated or unverified. This is a sanitized review copy; scripts, forms and remote embeds are disabled. Use the new proposal and source register for publisher-facing claims.</div>
+<header class="bg-slate-900 text-white pt-12 pb-24 px-6 md:px-12 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-grid-pattern"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 rounded-full text-xs font-semibold tracking-wide uppercase mb-4">
+<i class="ph ph-book-open text-sm"></i> Publisher Acquisition Dashboard
+                    </div>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">BITM 330: Data to Decisions</h1>
+<p class="text-lg text-slate-400 max-w-2xl">
+                        The business-first database textbook that turns messy data into strategic wisdom. 
+                        Designed for modern EdTech platforms and every major in the business school.
+                    </p>
+</div>
+<div class="flex bg-slate-800 p-1 rounded-lg border border-slate-700">
+<button class="px-6 py-2.5 rounded-md text-sm font-medium transition-colors bg-indigo-600 text-white shadow-sm" id="btn-strategy">
+                        Publisher ROI
+                    </button>
+<button class="px-6 py-2.5 rounded-md text-sm font-medium transition-colors text-slate-400 hover:text-white" id="btn-content">
+                        Content &amp; Architecture
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 md:px-12 -mt-12 relative z-20">
+<!-- Tab: Strategy (Publisher ROI) -->
+<div class="space-y-8 animate-fade-in block" id="tab-strategy">
+<!-- USPs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-indigo-50 text-indigo-600 rounded-lg">
+<i class="ph ph-users text-2xl"></i>
+</div>
+<span class="inline-flex items-center gap-1 text-xs font-semibold px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">
+<i class="ph ph-trend-up"></i> +300% TAM
+                        </span>
+</div>
+<div>
+<h3 class="text-slate-500 text-sm font-medium">Massive Addressable Market</h3>
+<p class="text-xl font-bold text-slate-800 mt-1">All Business Majors</p>
+<p class="text-slate-500 text-xs mt-3 leading-relaxed">Not just for MIS. Explicitly targets Accounting, Finance, Marketing, and Management students.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-indigo-50 text-indigo-600 rounded-lg">
+<i class="ph ph-rocket text-2xl"></i>
+</div>
+<span class="inline-flex items-center gap-1 text-xs font-semibold px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">
+<i class="ph ph-trend-up"></i> Low Dev Cost
+                        </span>
+</div>
+<div>
+<h3 class="text-slate-500 text-sm font-medium">EdTech &amp; Platform Ready</h3>
+<p class="text-xl font-bold text-slate-800 mt-1">6-File Architecture</p>
+<p class="text-slate-500 text-xs mt-3 leading-relaxed">Every chapter strictly follows a 6-component package. Predictable, scalable production costs.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-indigo-50 text-indigo-600 rounded-lg">
+<i class="ph ph-brain text-2xl"></i>
+</div>
+<span class="inline-flex items-center gap-1 text-xs font-semibold px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">
+<i class="ph ph-trend-up"></i> Future-Proof
+                        </span>
+</div>
+<div>
+<h3 class="text-slate-500 text-sm font-medium">Earned AI Integration</h3>
+<p class="text-xl font-bold text-slate-800 mt-1">RAG &amp; Cloud Infrastructure</p>
+<p class="text-slate-500 text-xs mt-3 leading-relaxed">AI isn't a decorative add-on. It's taught as a consumer of well-structured data (Supabase, RAG).</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-indigo-50 text-indigo-600 rounded-lg">
+<i class="ph ph-briefcase text-2xl"></i>
+</div>
+<span class="inline-flex items-center gap-1 text-xs font-semibold px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">
+<i class="ph ph-trend-up"></i> High ROI for Students
+                        </span>
+</div>
+<div>
+<h3 class="text-slate-500 text-sm font-medium">Career &amp; Strategy Focus</h3>
+<p class="text-xl font-bold text-slate-800 mt-1">Decision Memos &amp; Portfolios</p>
+<p class="text-slate-500 text-xs mt-3 leading-relaxed">Turns students into strategists. Teaches data-driven memos and resume translation for jobs.</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Target Audience Chart -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 lg:col-span-2">
+<div class="mb-6">
+<h2 class="text-xl font-bold flex items-center gap-2"><i class="ph-fill ph-target text-indigo-600"></i> Unlocking the Entire Business School</h2>
+<p class="text-slate-500 text-sm mt-1">Unlike standard DB books targeting only MIS/CS students, this book maps directly to every business major's needs, massively increasing adoptions.</p>
+</div>
+<div class="h-72 w-full relative">
+<canvas id="barChart"></canvas>
+</div>
+</div>
+<!-- Platform Predictability Radar -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col">
+<div class="mb-2">
+<h2 class="text-xl font-bold flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-600"></i> Scalable EdTech Production</h2>
+<p class="text-slate-500 text-sm mt-1">The strict "Chapter-Package Rule" ensures zero production surprises.</p>
+</div>
+<div class="flex-grow flex items-center justify-center relative w-full h-56">
+<canvas id="radarChart"></canvas>
+</div>
+<div class="bg-slate-50 rounded-lg p-4 border border-slate-100 mt-4">
+<p class="text-xs text-slate-600 font-medium leading-relaxed">
+                            Every chapter includes: Concepts, Guided Build (Grading DB), Review, Vocabulary, Quiz (RAT), and Transfer Lab (PetVax). <span class="font-bold text-slate-800">Perfect for LMS import.</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Strategic Value Prop Banner -->
+<div class="bg-gradient-to-r from-indigo-900 to-slate-900 rounded-xl p-8 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-8 border border-indigo-800">
+<div class="max-w-2xl">
+<h3 class="text-2xl font-bold mb-3 flex items-center gap-2"><i class="ph-fill ph-shield-check text-emerald-400"></i> Why this book wins the adoption war</h3>
+<p class="text-indigo-200 text-sm leading-relaxed">
+                        Competitors teach databases as isolated software technical manuals. This book teaches databases as <strong>Business Infrastructure</strong>. By ending with business strategy (CH13), AI integration (CH14), and career portfolio translation (CH16), it becomes a high-value asset students keep for job interviews, rather than sell back at semester's end.
+                    </p>
+</div>
+<div class="shrink-0 flex flex-col gap-3 w-full md:w-auto">
+<div class="bg-indigo-950/50 p-4 rounded-lg border border-indigo-500/30">
+<span class="block text-indigo-300 text-xs font-bold uppercase tracking-wider mb-1">Selling Point</span>
+<span class="font-semibold">"Earned" AI capability</span>
+</div>
+<div class="bg-indigo-950/50 p-4 rounded-lg border border-indigo-500/30">
+<span class="block text-indigo-300 text-xs font-bold uppercase tracking-wider mb-1">Selling Point</span>
+<span class="font-semibold">Contextual real-world projects</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab: Content & Architecture -->
+<div class="space-y-8 animate-fade-in hidden" id="tab-content">
+<!-- The Instructional Arc -->
+<div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+<h2 class="text-xl font-bold mb-6 text-center">The Core Instructional Arc</h2>
+<div class="flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-4" id="instructional-arc-container">
+<!-- Populated by JS -->
+</div>
+<p class="text-center text-slate-500 text-sm mt-6 max-w-3xl mx-auto">
+                    A cumulative journey: Students recognize data, organize tables, connect relationships, query with SQL, communicate via reporting, and apply judgment to business decisions.
+                </p>
+</div>
+<!-- Chapter Breakdown -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Phase 1 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+<div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+<div class="flex items-center gap-2 text-indigo-600 mb-1">
+<i class="ph-fill ph-database text-lg"></i>
+<span class="font-bold text-xs uppercase tracking-wider">Phase 1 (Ch 01-08)</span>
+</div>
+<h3 class="text-lg font-bold text-slate-800">Using Inherited Databases</h3>
+</div>
+<div class="p-2 flex-grow" id="phase1-container">
+<!-- Populated by JS -->
+</div>
+</div>
+<!-- Phase 2 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+<div class="bg-indigo-50 px-6 py-4 border-b border-indigo-100">
+<div class="flex items-center gap-2 text-indigo-600 mb-1">
+<i class="ph-fill ph-graduation-cap text-lg"></i>
+<span class="font-bold text-xs uppercase tracking-wider">Phase 2 (Ch 09-16)</span>
+</div>
+<h3 class="text-lg font-bold text-slate-800">Designing &amp; Leading Systems</h3>
+</div>
+<div class="p-2 flex-grow" id="phase2-container">
+<!-- Populated by JS -->
+</div>
+</div>
+</div>
+</div>
+</main>
+
+</body>
+</html>
