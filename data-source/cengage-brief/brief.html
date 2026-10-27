@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Using Data to Drive Business Performance · Cengage brief</title>
+<!-- Source for the two-page Cengage brief. Print to Letter PDF (see data-source/cengage-brief/README.md). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap">
+<style>
+:root{--ink:#14120f;--ink-2:#2b2722;--soft:#4a443b;--muted:#6e665a;--line:rgba(20,18,15,.14);--gold:#b8892f;--gold-deep:#8a6320;--gold-soft:#e6d2a0;--tint:#f7efdc;--night:#101c30;--night-2:#172741;--gold-bright:#e8c777}
+@page{size:letter;margin:0.5in 0.55in 0.55in}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;background:#fff;color:var(--ink);font:9.6pt/1.45 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Literata",Georgia,serif;font-weight:500;margin:0;line-height:1.15}
+p{margin:0 0 6pt}
+.page{break-after:page;position:relative}
+.page:last-child{break-after:auto}
+.eyebrow{font:700 7pt/1.2 "Source Sans 3",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
+.top{display:grid;grid-template-columns:1fr 92pt;gap:14pt;align-items:start;padding-bottom:10pt;border-bottom:2pt solid var(--gold)}
+h1{font-size:25pt;letter-spacing:-.02em;margin:5pt 0 3pt}
+h1 em{font-style:italic;color:var(--gold-deep)}
+.sub{font:italic 11pt/1.3 "Literata",serif;color:var(--soft);margin-bottom:4pt}
+.by{font-size:9pt;color:var(--soft)}
+.by b{color:var(--ink)}
+.badges{display:flex;gap:6pt;margin-top:7pt;flex-wrap:wrap}
+.badges span{border:1pt solid var(--gold-soft);background:var(--tint);border-radius:20pt;padding:2pt 8pt;font-size:8pt;color:var(--ink-2)}
+.badges b{color:var(--gold-deep)}
+.cover{width:92pt;border-radius:2pt 5pt 5pt 2pt;box-shadow:0 6pt 14pt -6pt rgba(0,0,0,.45)}
+h2{font-size:13pt;margin:12pt 0 5pt;display:flex;align-items:center;gap:7pt}
+h2::before{content:"";width:14pt;height:2pt;background:var(--gold)}
+.lead{font-size:10pt;color:var(--ink-2)}
+.lead b{color:var(--ink)}
+.arc{display:flex;gap:3pt;margin:6pt 0 8pt;padding:0;list-style:none}
+.arc li{background:var(--night);color:var(--gold-bright);font:600 8pt/1 "Literata",serif;padding:5pt 11pt 5pt 13pt;clip-path:polygon(0 0,calc(100% - 7pt) 0,100% 50%,calc(100% - 7pt) 100%,0 100%,7pt 50%)}
+.arc li:first-child{clip-path:polygon(0 0,calc(100% - 7pt) 0,100% 50%,calc(100% - 7pt) 100%,0 100%);padding-left:9pt}
+.arc li:last-child{background:linear-gradient(135deg,#e6c473,#a87b25);color:#1b150a}
+.rows{display:grid;grid-template-columns:92pt 1fr;gap:3pt 12pt;font-size:9.2pt}
+.rows dt{font:600 9.2pt/1.4 "Literata",serif}
+.rows dd{margin:0;color:var(--ink-2)}
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:5pt 16pt;margin:0;padding:0;list-style:none}
+.diff li{position:relative;padding-left:12pt;color:var(--ink-2);font-size:9.2pt}
+.diff li::before{content:"";position:absolute;left:0;top:4.5pt;width:5pt;height:5pt;transform:rotate(45deg);background:var(--gold)}
+.diff b{color:var(--ink)}
+.today{background:var(--tint);border-left:3pt solid var(--gold);padding:8pt 11pt;font-size:9.2pt;color:var(--ink-2)}
+.today b{color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7pt}
+.stat{border-top:2pt solid var(--gold);border:1pt solid var(--line);border-top:2pt solid var(--gold);padding:6pt 8pt 7pt}
+.stat .n{font:500 17pt/1.05 "Literata",serif;color:var(--gold-deep);letter-spacing:-.02em}
+.stat .t{font-size:8.2pt;color:var(--ink-2);line-height:1.3;margin-top:3pt}
+.stat .s{font-size:7pt;color:var(--muted);margin-top:3pt}
+.five{margin-top:7pt;font-size:9pt;color:var(--ink-2)}
+.five b{color:var(--ink)}
+.src{font-size:7pt;color:var(--muted);margin-top:8pt;line-height:1.35}
+/* page 2 */
+.p2h{font-size:17pt;margin:0 0 2pt}
+.p2s{font-size:9pt;color:var(--soft);margin-bottom:8pt}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 20pt}
+.part{margin-bottom:5pt}
+.part .ph{display:flex;align-items:baseline;gap:6pt;border-bottom:1pt solid var(--gold-soft);padding-bottom:2pt;margin-bottom:3pt}
+.part .ph i{font:700 6.8pt/1 "Source Sans 3",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);font-style:normal}
+.part .ph b{font:600 10pt/1.2 "Literata",serif}
+.ch{display:grid;grid-template-columns:20pt 1fr;gap:0 4pt;margin:1.6pt 0;line-height:1.2}
+.ch .no{font:600 9.5pt/1.25 "Literata",serif;color:var(--gold)}
+.ch .no.sm{font:700 6.5pt/1.9 "Source Sans 3",sans-serif;letter-spacing:.08em}
+.ch .tt{font-weight:600;font-size:8.9pt;line-height:1.25}
+.ch .tp{font-size:7.6pt;color:var(--muted);line-height:1.2}
+.note{font-size:8.6pt;color:var(--ink-2);margin:4pt 0}
+.note b{color:var(--ink)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:9pt;margin-top:5pt}
+.box{border:1pt solid var(--line);padding:7pt 10pt;font-size:8.6pt}
+.box.tint{background:var(--tint);border-color:var(--gold-soft)}
+.box h3{font-size:10pt;margin-bottom:3pt}
+.box ul{margin:0;padding-left:11pt;color:var(--ink-2)}
+.dec{display:grid;grid-template-columns:repeat(3,1fr);gap:9pt;margin-top:4pt}
+.dec div{border-top:2.2pt solid var(--ink);padding-top:3pt;font-size:8.6pt;color:var(--ink-2)}
+.dec b{display:block;font:600 13pt/1 "Literata",serif;color:var(--gold-deep);margin-bottom:2pt}
+.cta{margin-top:8pt;background:var(--night);color:#e9e4d8;padding:10pt 13pt;border-radius:3pt}
+.cta .big{font:500 11.2pt/1.35 "Literata",serif;color:#faf6ee;margin-bottom:5pt}
+.cta .ln{font-size:8.6pt}
+.cta b{color:var(--gold-bright)}
+.cta a{color:var(--gold-bright);text-decoration:none}
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="top">
+    <div>
+      <p class="eyebrow">Book prospectus · October 2026 · Prepared for Cengage</p>
+      <h1>Using Data to Drive <em>Business Performance</em></h1>
+      <p class="sub">Databases and Management Information Systems</p>
+      <p class="by"><b>Nimrod Dvir, PhD</b> · Massry School of Business, University at Albany, SUNY</p>
+      <div class="badges"><span><b>Version 1</b> tested in class, summer 2026</span><span><b>Version 2</b> in use with 500 students, fall 2026</span></div>
+    </div>
+    <img class="cover" src="../../public/cengage-review/claude-v6/assets/original-book-cover-still.jpg" alt="Book cover">
+  </div>
+
+  <h2>What this book is</h2>
+  <p class="lead"><b>Courseware that teaches business students to turn data into decisions:</b> a textbook, an interactive reader, guided builds, labs, auto-graded quizzes and a semester project, built to run as one course. Students organize data, query it with SQL, check the answers, present the evidence and recommend an action, with AI as an assistant whose work they learn to check.</p>
+  <ol class="arc"><li>Data</li><li>Tables</li><li>Relationships</li><li>Queries</li><li>Analytics</li><li>Decisions</li></ol>
+  <dl class="rows">
+    <dt>Primary course</dt><dd>The applied business database or MIS data-management course.</dd>
+    <dt>Also fits</dt><dd>The required business-core data or IS course, through a shorter route in the same chapters; selected modules for accounting information systems and analytics foundations.</dd>
+  </dl>
+
+  <h2>How it is different</h2>
+  <ul class="diff">
+    <li><b>Starts with the business.</b> Chapter 1 opens with performance, goals and KPIs, followed by data literacy and organizing information.</li>
+    <li><b>Uses a database before designing one.</b> Students query a supplied database, then model and build their own.</li>
+    <li><b>Ends in a decision.</b> Analytics, visualization and a full Power BI chapter lead to a decision memo.</li>
+    <li><b>Makes checking a habit.</b> From Chapter 5, students accept, revise or reject AI-assisted work and explain why.</li>
+  </ul>
+
+  <h2>What exists today</h2>
+  <div class="today">Seven years of teaching this course to <b>more than 4,000 students</b> shaped the book. Version 1 was tested in class in <b>summer 2026</b>; version 2 is in use with <b>500 students in fall 2026</b>. The full textbook is live as an interactive edition, with a Let’s Build, a lab and an auto-graded quiz in every chapter, an instructor dashboard, two running cases and an Access route.</div>
+
+  <h2>Five studies behind the proposal</h2>
+  <div class="stats">
+    <div class="stat"><div class="n">375,418</div><div class="t">U.S. business bachelor’s degrees, 2021–22</div><div class="s">Market · NCES</div></div>
+    <div class="stat"><div class="n">85%</div><div class="t">of 61 business schools require an IS course in the core</div><div class="s">Market · Fustos et al., 2017</div></div>
+    <div class="stat"><div class="n">63</div><div class="t">course documents from 31 institutions</div><div class="s">Syllabi and institutions</div></div>
+    <div class="stat"><div class="n">52.9%</div><div class="t">of 855 U.S. data analyst postings ask for SQL</div><div class="s">Employment · 365 Data Science, 2026</div></div>
+  </div>
+  <p class="five">Plus a <b>textbook study</b> (60 titles catalogued; four leading books compared chapter by chapter) and <b>classroom testing</b> with about 600 students in summer and fall 2026.</p>
+  <p class="src">Degree and course figures measure audience scale and course presence, not this book’s enrollments. Sources: NCES Digest of Education Statistics (2023), table 318.20; Fustos, Morris and Haga (2017), <i>Business and Management Studies</i> 3(2); 365 Data Science (2026), 855 relevant postings from 1,000 Indeed U.S. listings; author’s syllabus and textbook audits. Full methods and references online.</p>
+</section>
+
+<section class="page">
+  <h2 class="p2h" style="margin-top:0">The proposed edition: 16 chapters in five parts</h2>
+  <p class="p2s">A working proposal, open to better ideas. Plus a preface, a midterm Integration Studio, a closing chapter on careers and seven appendices.</p>
+  <div class="cols">
+    <div>
+      <div class="part"><div class="ph"><i>Part I</i><b>From Data to Decisions</b></div>
+        <div class="ch"><span class="no">1</span><span><span class="tt">From Data to Business Performance</span><br><span class="tp">Business, KPIs, DIKW, information behavior, IS and IT</span></span></div>
+        <div class="ch"><span class="no">2</span><span><span class="tt">Understanding Data</span><br><span class="tp">Data types, measurement scales, CSV and JSON, data quality</span></span></div>
+        <div class="ch"><span class="no">3</span><span><span class="tt">Organizing Data and Information</span><br><span class="tp">Files, metadata, taxonomies, data dictionaries</span></span></div>
+      </div>
+      <div class="part"><div class="ph"><i>Part II</i><b>Databases and SQL</b></div>
+        <div class="ch"><span class="no">4</span><span><span class="tt">Databases and the Relational Model</span><br><span class="tp">DBMS, keys, relationships, schemas, integrity</span></span></div>
+        <div class="ch"><span class="no">5</span><span><span class="tt">SQL Foundations</span><br><span class="tp">SELECT to aggregates, CREATE and INSERT, first AI verification</span></span></div>
+        <div class="ch"><span class="no">6</span><span><span class="tt">SQL for Business Analysis</span><br><span class="tp">Joins, GROUP BY, CASE, business measures</span></span></div>
+        <div class="ch"><span class="no sm">MID</span><span><span class="tt">Integration Studio A</span><br><span class="tp">Review, practice exam, project checkpoint 1</span></span></div>
+      </div>
+      <div class="part"><div class="ph"><i>Part III</i><b>Designing and Running Databases</b></div>
+        <div class="ch"><span class="no">7</span><span><span class="tt">Database Design: From Requirements to ER Diagrams</span><br><span class="tp">Business rules, Crow’s Foot notation, ERD tools</span></span></div>
+        <div class="ch"><span class="no">8</span><span><span class="tt">Normalization</span><br><span class="tp">Anomalies, dependencies, 1NF to 3NF</span></span></div>
+        <div class="ch"><span class="no">9</span><span><span class="tt">Building and Testing a Database</span><br><span class="tp">DDL, constraints, loading data, integrity tests</span></span></div>
+        <div class="ch"><span class="no">10</span><span><span class="tt">Advanced SQL</span><br><span class="tp">CTEs, views, window functions, triggers</span></span></div>
+        <div class="ch"><span class="no">11</span><span><span class="tt">Database Administration, Security and Reliability</span><br><span class="tp">Roles, row-level security, transactions, backup</span></span></div>
+      </div>
+    </div>
+    <div>
+      <div class="part"><div class="ph"><i>Part IV</i><b>From Data to Insight</b></div>
+        <div class="ch"><span class="no">12</span><span><span class="tt">Business Analytics and Decision-Making</span><br><span class="tp">Fair comparisons, causation, the decision memo</span></span></div>
+        <div class="ch"><span class="no">13</span><span><span class="tt">Reporting and Data Visualization</span><br><span class="tp">Dashboards, chart choice, honest visuals</span></span></div>
+        <div class="ch"><span class="no">14</span><span><span class="tt">Power BI</span><br><span class="tp">Power Query, data model, DAX measures, validated against SQL</span></span></div>
+        <div class="ch"><span class="no">15</span><span><span class="tt">Big Data, Data Warehouses and AI</span><br><span class="tp">Star schemas, ETL, NoSQL, verifying AI output</span></span></div>
+      </div>
+      <div class="part"><div class="ph"><i>Part V</i><b>Putting It to Work</b></div>
+        <div class="ch"><span class="no">16</span><span><span class="tt">Capstone: From Data to Decisions</span><br><span class="tp">Problem to database to dashboard to decision memo</span></span></div>
+        <div class="ch"><span class="no sm">END</span><span><span class="tt">Closing: Where Data Can Take You</span><br><span class="tp">Data careers and building a portfolio</span></span></div>
+      </div>
+      <div class="part"><div class="ph"><i>Appendices</i><b>Tools and routes</b></div>
+        <p class="note">A Supabase and the in-book SQL editor · B MySQL route (planned) · C Microsoft Access route · D SQL reference and dialect guide · E Diagramming · F Tableau route · G Terms Treasury</p>
+      </div>
+      <p class="note"><b>Every chapter:</b> introduction, core concepts, Terms Treasury, a Reading Assessment Test, a Let’s Build, an interactive lab, review questions and key takeaways, plus a three-checkpoint semester project.</p>
+      <p class="note"><b>Two routes:</b> business core, Chapters 1–8 and 12–14; MIS, Chapters 1 and 4–16, with 2–3 as reading. A 14-week schedule is proposed; pacing to be agreed in review.</p>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="box"><h3>Available now</h3><ul><li>Interactive textbook and reader</li><li>A Let’s Build, a lab and a quiz in every chapter</li><li>Instructor dashboard and materials</li><li>Access route; Grading Database and PetVax cases</li></ul></div>
+    <div class="box tint"><h3>Planned for the next edition</h3><ul><li>The 16-chapter edition above</li><li>In-browser PostgreSQL practice and a hosted Supabase project</li><li>Power BI with a Tableau alternative; a MySQL route to test</li><li>Automated SQL and lab feedback (prototype in testing)</li></ul></div>
+  </div>
+
+  <h2>Three decisions to make together</h2>
+  <div class="dec">
+    <div><b>1</b>Publishing arrangement and portfolio positioning</div>
+    <div><b>2</b>Development scope: tools, cases and a sample unit</div>
+    <div><b>3</b>Responsibilities, review milestones and manuscript submission</div>
+  </div>
+
+  <div class="cta">
+    <p class="big">I would like to formalize our publishing relationship and agree on the development scope and manuscript submission timeline.</p>
+    <p class="ln"><b>Nimrod Dvir, PhD</b> · ndvir@albany.edu · 646-244-2338 · Massry School of Business, University at Albany, SUNY</p>
+    <p class="ln" style="margin:0">Full research, outline and references: <a href="https://dimapub.com/using-data-prospectus/">dimapub.com/using-data-prospectus</a> · Live reader: <a href="https://database-textbook.dimapublishing.com/">database-textbook.dimapublishing.com</a></p>
+  </div>
+</section>
+</body>
+</html>
