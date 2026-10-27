@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta content="default-src 'none'; style-src 'unsafe-inline'; img-src data:;" http-equiv="Content-Security-Policy"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Database Textbook: Enterprise Expansion Blueprint</title>
+
+
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;500;700&display=swap');
+
+        :root {
+            --primary: #0F172A;
+            --accent: #EA580C;
+            --bg-soft: #FDFCFB;
+            --card-border: #E5E7EB;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--primary);
+        }
+
+        .advanced-chapter-node {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--card-border);
+        }
+
+        .advanced-chapter-node:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            height: 400px;
+            max-height: 500px;
+        }
+
+        .selling-point-tag {
+            background: linear-gradient(90deg, #EA580C 0%, #F97316 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body class="antialiased"><div style="background:#fff0c9;color:#342b18;padding:22px;font:16px/1.5 sans-serif;border:3px solid #a67725">PRIOR RESEARCH EXHIBIT. Claims may be outdated or unverified. This is a sanitized review copy; scripts, forms and remote embeds are disabled. Use the new proposal and source register for publisher-facing claims.</div>
+<!-- Chosen Palette: Slate & Burnt Orange (Executive & High-Energy Academic) -->
+<!-- Application Structure Plan: 
+    - The SPA is designed as an "Enterprise Scaling Roadmap."
+    - Navigation: Focuses on "Advanced Chapters (10-16)," "Skills Gap Analysis," and "Enterprise Mapping."
+    - User Flow: The user investigates how the book scales from a single-user Access DB to a multi-tier Enterprise environment.
+    - Rationale: Chapters 10-16 are where the 'Selling Point' shifts from 'Hands-on Software' to 'Strategic Intelligence.'
+-->
+<!-- Visualization & Content Choices:
+    - Complexity vs. Value Matrix -> Goal: Compare -> Bubble/Scatter Chart -> Justification: Shows how the final 7 chapters provide exponentially more career value than basic SQL.
+    - Skills Alignment -> Goal: Inform -> Radar Chart -> Justification: Highlights alignment with AACSB "Technology Agility" mandates.
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 px-6 py-4">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-orange-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl tracking-tighter italic">BP</div>
+<div>
+<h1 class="text-xl font-bold">The Advanced Blueprint</h1>
+<p class="text-xs text-slate-500 uppercase tracking-widest">Chapters 10–16: Enterprise &amp; Intelligence</p>
+</div>
+</div>
+<div class="hidden md:flex space-x-8 text-sm font-semibold">
+<button class="text-orange-600 border-b-2 border-orange-600" id="nav-curriculum">Advanced Modules</button>
+<button class="text-slate-400 hover:text-slate-900 transition-colors" id="nav-enterprise">Market Value</button>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-12">
+<!-- SECTION: ADVANCED CURRICULUM -->
+<section class="space-y-12" id="view-curriculum">
+<header class="max-w-4xl">
+<h2 class="text-4xl font-bold tracking-tight mb-4">Enterprise &amp; Cloud Integration</h2>
+<p class="text-lg text-slate-600 leading-relaxed italic">
+                    While Chapters 1–9 focus on building the tool, Chapters 10–16 focus on **scaling the architect**. This section prepares students for roles in Business Intelligence, Data Analytics, and Systems Migration.
+                </p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="chapter-grid-advanced">
+<!-- JS Population of Chapters 10-16 -->
+</div>
+</section>
+<!-- SECTION: ENTERPRISE MAPPING -->
+<section class="hidden space-y-16" id="view-enterprise">
+<div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100">
+<div class="text-center mb-10">
+<h2 class="text-3xl font-bold mb-2">Complexity vs. Career Value Matrix</h2>
+<p class="text-slate-500">How Chapters 10-16 bridge the gap to high-salary MIS roles.</p>
+</div>
+<div class="chart-container">
+<canvas id="valueMatrix"></canvas>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<h3 class="text-2xl font-bold text-slate-800">The "Coronel" Differentiation</h3>
+<div class="flex gap-4">
+<div class="w-1 bg-orange-500 rounded-full"></div>
+<p class="text-slate-600">Coronel 14e gets bogged down in <strong>Distributed Database Theory</strong> and hardware levels. Our text focuses on <strong>Cloud Migration Logic</strong>—teaching students how to move Access data to Azure/AWS.</p>
+</div>
+<div class="flex gap-4">
+<div class="w-1 bg-orange-500 rounded-full"></div>
+<p class="text-slate-600">Kroenke's SQL focus is academic. Our text integrates <strong>VBA-to-SQL Server connectivity</strong>, allowing students to build real-world client/server applications.</p>
+</div>
+</div>
+<div class="bg-slate-900 text-white p-8 rounded-3xl">
+<h4 class="text-orange-400 font-bold mb-4 uppercase text-xs tracking-widest">Selling Point: The "Citizen Architect"</h4>
+<p class="text-lg leading-relaxed">
+                        We aren't just teaching DB Management. We are teaching <strong>Business Intelligence Readiness</strong>. By the time the student reaches Chapter 16, they have a portfolio piece that handles multi-user environments, automated reporting, and ethical data governance.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-slate-50 border-t border-slate-200 py-16 mt-24">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="col-span-1">
+<div class="text-2xl font-bold text-orange-600 mb-4 tracking-tighter italic">Database Textbook Roadmap</div>
+<p class="text-sm text-slate-500">A comprehensive review and differentiation strategy for modern database education in business schools.</p>
+</div>
+<div class="col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h5 class="font-bold text-sm mb-4 uppercase tracking-widest text-slate-400">Phase 1</h5>
+<ul class="text-sm space-y-2 text-slate-600">
+<li>Foundational Theory</li>
+<li>Logical Modeling</li>
+<li>Relational Logic</li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-sm mb-4 uppercase tracking-widest text-slate-400">Phase 2</h5>
+<ul class="text-sm space-y-2 text-slate-600">
+<li>VBA Automation</li>
+<li>SQL Interrogation</li>
+<li>Interface Design</li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-sm mb-4 uppercase tracking-widest text-slate-400">Phase 3 (Final)</h5>
+<ul class="text-sm space-y-2 text-slate-600">
+<li>Cloud Integration</li>
+<li>Data Warehousing</li>
+<li>AI &amp; Governance</li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

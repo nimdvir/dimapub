@@ -850,9 +850,25 @@ footer a { color: var(--gold-deep); }
 }
 
 @media print {
-  .site-header, .to-top, .galaxy, .marquee, .halo { display: none !important; }
-  body { font-size: 11pt; }
-  .hero, .part-banner, .contact-card { background: #101c30 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  .js .reveal { opacity: 1; transform: none; }
-  details.part-fold, details.big-fold { break-inside: auto; }
+  @page { size: letter; margin: 0.45in 0.4in; }
+  html { scroll-padding-top: 0; }
+  body { background: #fbf9f4; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none !important; transition: none !important; }
+  .site-header, .to-top, .galaxy, .marquee, .halo, .skip, .outline-tools, .in-part, .rdots, footer { display: none !important; }
+  .js .reveal, .js .bars .fill, .js .seq .cells span, .js .arc li { opacity: 1 !important; transform: none !important; }
+  .cover-wrap .cover { transform: none; box-shadow: none; }
+  .part-banner { break-before: page; margin-top: 0; }
+  #research ~ section.container[id] .rhead { break-before: page; padding-top: 0; }
+  .sec { padding-top: 34px; }
+  .fig, .icard, .chap, .flow-row, .inf-row, .conclusion, .rhead-in, .callout, .case, .doc, .points li, .rhythm li, .shaped-row,
+  .journey li, .brow, .apx-row, .inst, .region, ol.qs li, ol.next-list li, .contact-card, .proposal, .story, .seq-row, tr, .bar { break-inside: avoid; }
+  h2, h3, h4, .sec-h, .sub > h3 { break-after: avoid; }
+  details.part-fold > summary .toggle, details.big-fold > summary::after { display: none; }
+  details.part-fold { break-inside: auto; }
+  details.part-fold > summary { break-inside: avoid; break-after: avoid; }
+  details.part-fold .pbody > .chap:first-child { break-before: avoid; }
+  details.big-fold:not([open]) > summary span::after { content: " · online at dimapub.com"; }
+  .table-wrap { overflow: visible; box-shadow: none; }
+  .table-wrap table { min-width: 0; }
+  .icard:hover, .fig:hover, .points li:hover, .rhythm li:hover, .doc:hover { transform: none; box-shadow: none; }
 }
