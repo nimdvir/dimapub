@@ -127,3 +127,14 @@ document.addEventListener('click', e => {
     else fallback();
   });
 })();
+
+// Printing shows the whole outline: open every part, then restore what the reader had open.
+(function () {
+  let closed = [];
+  addEventListener('beforeprint', () => {
+    closed = [...document.querySelectorAll('details.part-fold:not([open])')];
+    closed.forEach(d => { d.open = true; });
+    document.querySelectorAll('.reveal, .bars, .seq, .arc').forEach(el => el.classList.add('in'));
+  });
+  addEventListener('afterprint', () => { closed.forEach(d => { d.open = false; }); closed = []; });
+})();
