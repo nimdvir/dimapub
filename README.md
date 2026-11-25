@@ -31,6 +31,17 @@ The gold starfield is an adaptation of the React Bits [Galaxy](https://www.react
 Use `<Galaxy />` inside a dark `.on-night` section; `Base.astro` adds a faint `variant="paper"` layer in the side
 margins of every page. It pauses off-screen and in background tabs, and stays still for reduced-motion visitors.
 
+## SEO & AI agents
+
+- **Sitemap**: generated at build time by `@astrojs/sitemap` (`/sitemap-index.xml`), configured in `astro.config.mjs`.
+  Login, portal and 404 are left out.
+- **robots.txt** (`public/robots.txt`): open to search engines and AI assistants; AI crawlers are kept out of the
+  private `/using-data-prospectus/` review pages (which are also `noindex`).
+- **llms.txt / llms-full.txt**: plain-text guides for AI agents, built from `src/data/` by `src/lib/llms.ts`, so they
+  update when the book data changes.
+- **Structured data**: `Base.astro` adds Organization, WebSite, WebPage and (via the `breadcrumbs` prop) BreadcrumbList.
+  The book page adds Book (with chapters) and FAQPage.
+
 ## Media
 
 All images and animations are served from Cloudinary (`dkndq6lyz`, folder `dimapub`). The large source GIFs are

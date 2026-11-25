@@ -6,7 +6,7 @@ import Icon from '../../components/Icon.astro';
 import { book } from '../../data/site';
 ---
 
-<Base title="Books" description="The Dima Publishing catalog: interactive, classroom-tested books that connect learning to doing.">
+<Base title="Books" breadcrumbs={[{ name: 'Books', path: '/books/' }]} description="The Dima Publishing catalog: interactive, classroom-tested books that connect learning to doing.">
   <PageHero
     eyebrow="The catalog"
     title="Books worth <em class='gold'>finishing</em>."
