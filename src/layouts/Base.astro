@@ -14,30 +14,81 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  imageAlt?: string;
   headerTone?: 'paper' | 'night';
   noindex?: boolean;
+  /** Open Graph type, e.g. 'book' for a title page. */
+  ogType?: string;
+  /** Breadcrumb trail after Home, e.g. [{ name: 'Books', path: '/books/' }]. */
+  breadcrumbs?: { name: string; path: string }[];
 }
 
 const {
   title,
   description = site.description,
   image = ogImage(media.cover),
+  imageAlt = `${site.name}: ${site.tagline}`,
   headerTone = 'paper',
   noindex = false,
+  ogType = 'website',
+  breadcrumbs = [],
 } = Astro.props;
 
 const fullTitle = title ? `${title} · ${site.name}` : `${site.name} — ${site.tagline}`;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 
-const orgLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: site.name,
-  url: site.url,
-  email: site.email,
-  logo: `${site.url}/favicon.svg`,
-  description: site.description,
-};
+const orgId = `${site.url}/#organization`;
+const graph: Record<string, unknown>[] = [
+  {
+    '@type': ['Organization', 'EducationalOrganization'],
+    '@id': orgId,
+    name: site.name,
+    alternateName: 'Dima Publishing LLC',
+    url: `${site.url}/`,
+    email: site.email,
+    logo: { '@type': 'ImageObject', url: `${site.url}/apple-touch-icon.png` },
+    description: site.description,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: site.email,
+      url: `${site.url}/contact/`,
+      availableLanguage: 'en',
+    },
+  },
+  {
+    '@type': 'WebSite',
+    '@id': `${site.url}/#website`,
+    name: site.name,
+    url: `${site.url}/`,
+    description: site.description,
+    inLanguage: 'en',
+    publisher: { '@id': orgId },
+  },
+  {
+    '@type': 'WebPage',
+    '@id': `${canonical}#webpage`,
+    url: canonical,
+    name: fullTitle,
+    description,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${site.url}/#website` },
+    publisher: { '@id': orgId },
+    primaryImageOfPage: { '@type': 'ImageObject', url: image },
+  },
+];
+if (breadcrumbs.length) {
+  graph.push({
+    '@type': 'BreadcrumbList',
+    itemListElement: [{ name: 'Home', path: '/' }, ...breadcrumbs].map((b, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: b.name,
+      item: new URL(b.path, site.url).href,
+    })),
+  });
+}
+const ld = { '@context': 'https://schema.org', '@graph': graph };
 ---
 
 <!doctype html>
@@ -48,23 +99,40 @@ const orgLd = {
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
+    <meta
+      name="robots"
+      content={noindex ? 'noindex' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
+    />
+    <meta name="author" content={site.name} />
     <meta name="theme-color" content="#fbf9f4" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <!-- Plain-text guides for AI assistants and agents (https://llmstxt.org) -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary" />
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM-readable full site content" />
 
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
 
-    <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
     <slot name="head" />
     <script is:inline>
       document.documentElement.classList.replace('no-js', 'js');

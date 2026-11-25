@@ -8,9 +8,10 @@ interface Props {
   updated: string;
 }
 const { title, description, updated } = Astro.props;
+const path = Astro.url.pathname;
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} breadcrumbs={[{ name: title, path }]}>
   <PageHero eyebrow={`Last updated ${updated}`} title={title} />
   <section class="section tight">
     <div class="container">

@@ -7,29 +7,66 @@ import { site, book } from '../../data/site';
 import { differences, read, parts, appendices, faqs, arc, rhythm } from '../../data/book';
 import { img, media } from '../../lib/media';
 
+const bookUrl = `${site.url}/books/${book.slug}/`;
+const description =
+  'An interactive, business-first database textbook. Students write real SQL from the first weeks, build two complete systems, and learn to turn data into decisions they can defend.';
+
 const bookLd = {
   '@context': 'https://schema.org',
   '@type': 'Book',
+  '@id': `${bookUrl}#book`,
   name: book.title,
   alternativeHeadline: book.subtitle,
-  author: { '@type': 'Person', name: 'Nimrod Dvir' },
-  publisher: { '@type': 'Organization', name: site.name, url: site.url },
+  description,
+  author: { '@type': 'Person', name: 'Nimrod Dvir', honorificPrefix: 'Dr.' },
+  publisher: { '@id': `${site.url}/#organization`, '@type': 'Organization', name: site.name, url: `${site.url}/` },
   bookFormat: 'https://schema.org/EBook',
   inLanguage: 'en',
-  url: `${site.url}/books/${book.slug}/`,
+  url: bookUrl,
   image: img(media.cover, 800),
-  numberOfPages: undefined,
   educationalLevel: 'Undergraduate',
-  about: ['Databases', 'SQL', 'Management information systems', 'Business intelligence'],
+  learningResourceType: 'Textbook',
+  audience: { '@type': 'EducationalAudience', educationalRole: ['student', 'teacher'] },
+  isAccessibleForFree: false,
+  about: ['Databases', 'SQL', 'Management information systems', 'Business intelligence', 'Data analytics'],
+  keywords:
+    'database textbook, SQL textbook, management information systems, MIS, business intelligence, relational databases, normalization, interactive textbook',
+  potentialAction: { '@type': 'ReadAction', target: book.readerUrl },
+  hasPart: parts.flatMap((p) =>
+    p.chapters.map((c) => ({
+      '@type': 'Chapter',
+      position: c.n,
+      name: `Chapter ${c.n}: ${c.title}`,
+      description: c.note,
+    })),
+  ),
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
 };
 ---
 
 <Base
   title={book.title}
-  description="An interactive, business-first database textbook. Students write real SQL from the first weeks, build two complete systems, and learn to turn data into decisions they can defend."
+  description={description}
   headerTone="night"
+  ogType="book"
+  imageAlt={`Cover of ${book.title} by ${book.author}`}
+  breadcrumbs={[
+    { name: 'Books', path: '/books/' },
+    { name: book.title, path: `/books/${book.slug}/` },
+  ]}
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(bookLd)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  <meta slot="head" property="book:author" content={book.author} />
 
   <!-- ============ HERO ============ -->
   <section class="book-hero on-night">
